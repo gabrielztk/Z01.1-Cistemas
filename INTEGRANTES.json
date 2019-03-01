@@ -5,9 +5,9 @@
     "user-github": {}
   },
   "aluno-2": {
-    "nome": {},
-    "email-insper": {},
-    "user-github": {}
+    "nome": {"Andre Paiva"},
+    "email-insper": {"andrefp1@al.insper.edu.br"},
+    "user-github": {"APaiva1999"}
   },
   "aluno-3": {
 	"nome": {"Roger Ribeiro Fava Pina"},
@@ -26,7 +26,7 @@
   },
   "aluno-6": {
     "nome": {"Samuel Naassom do Nascimento Porto"},
-    "email-insper": {samuelnnp@al.insper.edu.br},
-    "user-github": {PortoSamuel}
+    "email-insper": {"samuelnnp@al.insper.edu.br"},
+    "user-github": {"PortoSamuel"}
   }
 }
