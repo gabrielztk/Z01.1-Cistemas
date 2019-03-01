@@ -15,9 +15,9 @@
     "user-github": {},
   },
   "aluno-4": {
-    "nome": {},
-    "email-insper": {},
-    "user-github": {}
+    "nome": {"Pedro Vero Fontes"},
+    "email-insper": {"pedrovf@al.insper.edu.br"},
+    "user-github": {"fontes99"}
   },
   "aluno-5": {
     "nome": {Gabriel Zanetti Traumuller Kawall},
