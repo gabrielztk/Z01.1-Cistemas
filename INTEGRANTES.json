@@ -15,9 +15,9 @@
     "user-github": {},
   },
   "aluno-4": {
-    "nome": {},
-    "email-insper": {},
-    "user-github": {}
+    "nome": {"Roger Ribeiro Fava Pina"},
+    "email-insper": {"rogerrfp@al.insper.edu.br"},
+    "user-github": {"RogerPina2"}
   },
   "aluno-5": {
     "nome": {"Gabriel Zanetti Traumuller Kawall"},
