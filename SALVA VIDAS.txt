@@ -1,0 +1,42 @@
+git cloCriação do fork
+	#fork ja existe
+	. git clone <URL_FORK>
+	
+	#adiciona um upstream (para ter soncronia)
+	. git remote add upstream <URL_ORIGINAL>
+
+	#confirma q deu certo
+	. git remote -v
+	
+Atualização do fork
+	#baixe as atualizações do upstream
+	. git fetch upstream
+	
+	#va para o fork
+	. git checkout master
+
+	#aplique as atualizações
+	. git merge upstream/master
+
+Criando um branch secundário
+	#se a tag existir
+		#criação do branch secundário cujo código é igual ao do release
+		. git checkout tags/<TAG_DO_RELEASE>
+
+	#se não existir
+		#criaçaõ do branch secundário 
+		. git checkout -b teste
+	
+	#empurra o branch secundário para o GitHub
+	. git push --set-upstream origin <NOME_DO_BRANCH_SECUNDÁRIO>
+
+
+Pull request
+	#para realizar o pull request vá acesse pelo navegador a url do fork
+	no canto esquerdo superior você deverá encontrar "New pull request" e 
+	ao lado esquerdo você defini o branch que você quer dar pull.
+	
+	#em seguida de um título ao request e adione um comentário para que o
+	Scrum Master possa saber do que se trata o request
+	
+	#por fim, crie o pull request
