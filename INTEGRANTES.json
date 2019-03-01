@@ -10,9 +10,9 @@
     "user-github": {}
   },
   "aluno-3": {
-    "nome": {},
-    "email-insper": {},
-    "user-github": {},
+	"nome": {"Roger Ribeiro Fava Pina"},
+    "email-insper": {"rogerrfp@al.insper.edu.br"},
+    "user-github": {"RogerPina2"}
   },
   "aluno-4": {
     "nome": {"Pedro Vero Fontes"},
@@ -20,9 +20,9 @@
     "user-github": {"fontes99"}
   },
   "aluno-5": {
-    "nome": {Gabriel Zanetti Traumuller Kawall},
-    "email-insper": {gabrielztk@al.insper.edu.br},
-    "user-github": {gabrielztk}
+    "nome": {"Gabriel Zanetti Traumuller Kawall"},
+    "email-insper": {"gabrielztk@al.insper.edu.br"},
+    "user-github": {"gabrielztk"}
   },
   "aluno-6": {
     "nome": {},
