@@ -4,7 +4,7 @@ JedecChain;
 	DefaultMfr(6E);
 
 	P ActionCode(Cfg)
-		Device PartName(5CEBA4F23) Path("/home/borg/Documents/Insper/3sem/Z01.1-Cistemas/Projetos/C-LogicaCombinacional/Quartus/") File("DE0_CV_Default.sof") MfrSpec(OpMask(1));
+		Device PartName(5CEBA4F23) Path("/home/borg/Desktop/Elementos_de_Cistemas/Z01.1-Cistemas/Projetos/C-LogicaCombinacional/Quartus/") File("DE0_CV_Default.sof") MfrSpec(OpMask(1));
 
 ChainEnd;
 
