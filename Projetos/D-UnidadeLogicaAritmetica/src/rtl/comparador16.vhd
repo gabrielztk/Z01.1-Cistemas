@@ -2,8 +2,10 @@
 -- by Luciano Soares
 -- comparador16.vhd
 
-library IEEE;
-use IEEE.STD_LOGIC_1164.all;
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+use work.all;
 
 entity comparador16 is
    port(
@@ -20,5 +22,11 @@ architecture rtl of comparador16 is
 
 begin
   -- Implementação vem aqui!
+
+  zr <= '1' when a = "0000000000000000" else '0';
+
+  --ng <= '1' when to_integer(signed(a)) <  0 else '0';
+  
+  ng <= '1' when a(15) = '1' else '0';
 
 end architecture;
