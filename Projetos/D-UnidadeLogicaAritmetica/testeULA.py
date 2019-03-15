@@ -18,7 +18,6 @@ ROOT_PATH = subprocess.Popen(
     stdout=subprocess.PIPE).communicate()[0].rstrip().decode('utf-8')
 sys.path.insert(0, ROOT_PATH + '/Projetos/Z01-tools/scripts/')
 from config import *
-
 class tstUla(object):
 
     def __init__(self):
