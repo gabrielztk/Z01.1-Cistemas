@@ -17,7 +17,7 @@ ROOT_PATH = subprocess.Popen(
     ['git', 'rev-parse', '--show-toplevel'],
     stdout=subprocess.PIPE).communicate()[0].rstrip().decode('utf-8')
 sys.path.insert(0, ROOT_PATH + '/Projetos/Z01-tools/scripts/')
-import config
+from config import *
 class tstUla(object):
 
     def __init__(self):
