@@ -1,5 +1,5 @@
 Analysis & Synthesis report for DE0_CV_Default
-Wed Feb 27 15:17:34 2019
+Mon Mar 11 12:14:05 2019
 Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
 
 
@@ -10,7 +10,18 @@ Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
   2. Analysis & Synthesis Summary
   3. Analysis & Synthesis Settings
   4. Parallel Compilation
-  5. Analysis & Synthesis Messages
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. User-Specified and Inferred Latches
+  9. General Register Statistics
+ 10. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 11. Parameter Settings for Inferred Entity Instance: lpm_divide:Mod0
+ 12. Parameter Settings for Inferred Entity Instance: lpm_divide:Mod1
+ 13. Parameter Settings for Inferred Entity Instance: lpm_divide:Mod2
+ 14. Post-Synthesis Netlist Statistics for Top Partition
+ 15. Elapsed Time Per Partition
+ 16. Analysis & Synthesis Messages
 
 
 
@@ -33,22 +44,27 @@ refer to the applicable agreement for further details.
 
 
 
-+---------------------------------------------------------------------------+
-; Analysis & Synthesis Summary                                              ;
-+-----------------------------+---------------------------------------------+
-; Analysis & Synthesis Status ; Failed - Wed Feb 27 15:17:34 2019           ;
-; Quartus Prime Version       ; 17.1.0 Build 590 10/25/2017 SJ Lite Edition ;
-; Revision Name               ; DE0_CV_Default                              ;
-; Top-level Entity Name       ; TopLevel                                    ;
-; Family                      ; Cyclone V                                   ;
-; Logic utilization (in ALMs) ; N/A until Partition Merge                   ;
-; Total registers             ; N/A until Partition Merge                   ;
-; Total pins                  ; N/A until Partition Merge                   ;
-; Total virtual pins          ; N/A until Partition Merge                   ;
-; Total block memory bits     ; N/A until Partition Merge                   ;
-; Total PLLs                  ; N/A until Partition Merge                   ;
-; Total DLLs                  ; N/A until Partition Merge                   ;
-+-----------------------------+---------------------------------------------+
++-------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                  ;
++---------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status     ; Successful - Mon Mar 11 12:14:05 2019       ;
+; Quartus Prime Version           ; 17.1.0 Build 590 10/25/2017 SJ Lite Edition ;
+; Revision Name                   ; DE0_CV_Default                              ;
+; Top-level Entity Name           ; TopLevel                                    ;
+; Family                          ; Cyclone V                                   ;
+; Logic utilization (in ALMs)     ; N/A                                         ;
+; Total registers                 ; 0                                           ;
+; Total pins                      ; 41                                          ;
+; Total virtual pins              ; 0                                           ;
+; Total block memory bits         ; 0                                           ;
+; Total DSP Blocks                ; 0                                           ;
+; Total HSSI RX PCSs              ; 0                                           ;
+; Total HSSI PMA RX Deserializers ; 0                                           ;
+; Total HSSI TX PCSs              ; 0                                           ;
+; Total HSSI PMA TX Serializers   ; 0                                           ;
+; Total PLLs                      ; 0                                           ;
+; Total DLLs                      ; 0                                           ;
++---------------------------------+---------------------------------------------+
 
 
 +---------------------------------------------------------------------------------------------------------------------------+
@@ -143,8 +159,8 @@ refer to the applicable agreement for further details.
 +----------------------------+-------------+
 ; Processors                 ; Number      ;
 +----------------------------+-------------+
-; Number detected on machine ; 8           ;
-; Maximum allowed            ; 4           ;
+; Number detected on machine ; 4           ;
+; Maximum allowed            ; 2           ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
 ; Maximum used               ; 1           ;
@@ -154,69 +170,386 @@ refer to the applicable agreement for further details.
 +----------------------------+-------------+
 
 
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                                                  ;
++----------------------------------+-----------------+------------------------------+---------------------------------------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                                                              ; Library ;
++----------------------------------+-----------------+------------------------------+---------------------------------------------------------------------------------------------------------------------------+---------+
+; ../src/TopLevel.vhd              ; yes             ; User VHDL File               ; /home/borg/Desktop/Elementos_de_Cistemas/Z01.1-Cistemas/Projetos/C-LogicaCombinacional/src/TopLevel.vhd                   ;         ;
+; ../src/rtl/Or16.vhd              ; yes             ; User VHDL File               ; /home/borg/Desktop/Elementos_de_Cistemas/Z01.1-Cistemas/Projetos/C-LogicaCombinacional/src/rtl/Or16.vhd                   ;         ;
+; ../src/rtl/Or8Way.vhd            ; yes             ; User VHDL File               ; /home/borg/Desktop/Elementos_de_Cistemas/Z01.1-Cistemas/Projetos/C-LogicaCombinacional/src/rtl/Or8Way.vhd                 ;         ;
+; ../src/rtl/Not16.vhd             ; yes             ; User VHDL File               ; /home/borg/Desktop/Elementos_de_Cistemas/Z01.1-Cistemas/Projetos/C-LogicaCombinacional/src/rtl/Not16.vhd                  ;         ;
+; ../src/rtl/Nor8Way.vhd           ; yes             ; User VHDL File               ; /home/borg/Desktop/Elementos_de_Cistemas/Z01.1-Cistemas/Projetos/C-LogicaCombinacional/src/rtl/Nor8Way.vhd                ;         ;
+; ../src/rtl/Nand.vhd              ; yes             ; User VHDL File               ; /home/borg/Desktop/Elementos_de_Cistemas/Z01.1-Cistemas/Projetos/C-LogicaCombinacional/src/rtl/Nand.vhd                   ;         ;
+; ../src/rtl/Mux16.vhd             ; yes             ; User VHDL File               ; /home/borg/Desktop/Elementos_de_Cistemas/Z01.1-Cistemas/Projetos/C-LogicaCombinacional/src/rtl/Mux16.vhd                  ;         ;
+; ../src/rtl/Mux8Way16.vhd         ; yes             ; User VHDL File               ; /home/borg/Desktop/Elementos_de_Cistemas/Z01.1-Cistemas/Projetos/C-LogicaCombinacional/src/rtl/Mux8Way16.vhd              ;         ;
+; ../src/rtl/Mux8Way.vhd           ; yes             ; User VHDL File               ; /home/borg/Desktop/Elementos_de_Cistemas/Z01.1-Cistemas/Projetos/C-LogicaCombinacional/src/rtl/Mux8Way.vhd                ;         ;
+; ../src/rtl/Mux4Way16.vhd         ; yes             ; User VHDL File               ; /home/borg/Desktop/Elementos_de_Cistemas/Z01.1-Cistemas/Projetos/C-LogicaCombinacional/src/rtl/Mux4Way16.vhd              ;         ;
+; ../src/rtl/Mux4Way.vhd           ; yes             ; User VHDL File               ; /home/borg/Desktop/Elementos_de_Cistemas/Z01.1-Cistemas/Projetos/C-LogicaCombinacional/src/rtl/Mux4Way.vhd                ;         ;
+; ../src/rtl/Mux2Way.vhd           ; yes             ; User VHDL File               ; /home/borg/Desktop/Elementos_de_Cistemas/Z01.1-Cistemas/Projetos/C-LogicaCombinacional/src/rtl/Mux2Way.vhd                ;         ;
+; ../src/rtl/DMux8Way.vhd          ; yes             ; User VHDL File               ; /home/borg/Desktop/Elementos_de_Cistemas/Z01.1-Cistemas/Projetos/C-LogicaCombinacional/src/rtl/DMux8Way.vhd               ;         ;
+; ../src/rtl/DMux4Way.vhd          ; yes             ; User VHDL File               ; /home/borg/Desktop/Elementos_de_Cistemas/Z01.1-Cistemas/Projetos/C-LogicaCombinacional/src/rtl/DMux4Way.vhd               ;         ;
+; ../src/rtl/DMux2Way.vhd          ; yes             ; User VHDL File               ; /home/borg/Desktop/Elementos_de_Cistemas/Z01.1-Cistemas/Projetos/C-LogicaCombinacional/src/rtl/DMux2Way.vhd               ;         ;
+; ../src/rtl/And16.vhd             ; yes             ; User VHDL File               ; /home/borg/Desktop/Elementos_de_Cistemas/Z01.1-Cistemas/Projetos/C-LogicaCombinacional/src/rtl/And16.vhd                  ;         ;
+; lpm_divide.tdf                   ; yes             ; Megafunction                 ; /home/borg/intelFPGA_lite/17.1/quartus/libraries/megafunctions/lpm_divide.tdf                                             ;         ;
+; abs_divider.inc                  ; yes             ; Megafunction                 ; /home/borg/intelFPGA_lite/17.1/quartus/libraries/megafunctions/abs_divider.inc                                            ;         ;
+; sign_div_unsign.inc              ; yes             ; Megafunction                 ; /home/borg/intelFPGA_lite/17.1/quartus/libraries/megafunctions/sign_div_unsign.inc                                        ;         ;
+; aglobal171.inc                   ; yes             ; Megafunction                 ; /home/borg/intelFPGA_lite/17.1/quartus/libraries/megafunctions/aglobal171.inc                                             ;         ;
+; db/lpm_divide_u4m.tdf            ; yes             ; Auto-Generated Megafunction  ; /home/borg/Desktop/Elementos_de_Cistemas/Z01.1-Cistemas/Projetos/C-LogicaCombinacional/Quartus/db/lpm_divide_u4m.tdf      ;         ;
+; db/sign_div_unsign_1nh.tdf       ; yes             ; Auto-Generated Megafunction  ; /home/borg/Desktop/Elementos_de_Cistemas/Z01.1-Cistemas/Projetos/C-LogicaCombinacional/Quartus/db/sign_div_unsign_1nh.tdf ;         ;
+; db/alt_u_div_82f.tdf             ; yes             ; Auto-Generated Megafunction  ; /home/borg/Desktop/Elementos_de_Cistemas/Z01.1-Cistemas/Projetos/C-LogicaCombinacional/Quartus/db/alt_u_div_82f.tdf       ;         ;
++----------------------------------+-----------------+------------------------------+---------------------------------------------------------------------------------------------------------------------------+---------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                                                                                                                  ;
++---------------------------------------------+----------------------------------------------------------------------------------------------------------------+
+; Resource                                    ; Usage                                                                                                          ;
++---------------------------------------------+----------------------------------------------------------------------------------------------------------------+
+; Estimate of Logic utilization (ALMs needed) ; 188                                                                                                            ;
+;                                             ;                                                                                                                ;
+; Combinational ALUT usage for logic          ; 345                                                                                                            ;
+;     -- 7 input functions                    ; 0                                                                                                              ;
+;     -- 6 input functions                    ; 31                                                                                                             ;
+;     -- 5 input functions                    ; 36                                                                                                             ;
+;     -- 4 input functions                    ; 50                                                                                                             ;
+;     -- <=3 input functions                  ; 228                                                                                                            ;
+;                                             ;                                                                                                                ;
+; Dedicated logic registers                   ; 0                                                                                                              ;
+;                                             ;                                                                                                                ;
+; I/O pins                                    ; 41                                                                                                             ;
+;                                             ;                                                                                                                ;
+; Total DSP Blocks                            ; 0                                                                                                              ;
+;                                             ;                                                                                                                ;
+; Maximum fan-out node                        ; lpm_divide:Mod1|lpm_divide_u4m:auto_generated|sign_div_unsign_1nh:divider|alt_u_div_82f:divider|StageOut[99]~4 ;
+; Maximum fan-out                             ; 28                                                                                                             ;
+; Total fan-out                               ; 1219                                                                                                           ;
+; Average fan-out                             ; 2.85                                                                                                           ;
++---------------------------------------------+----------------------------------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                              ;
++----------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------------------------------------------------------------------------------------+---------------------+--------------+
+; Compilation Hierarchy Node             ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                       ; Entity Name         ; Library Name ;
++----------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------------------------------------------------------------------------------------+---------------------+--------------+
+; |TopLevel                              ; 345 (128)           ; 0 (0)                     ; 0                 ; 0          ; 41   ; 0            ; |TopLevel                                                                                                 ; TopLevel            ; work         ;
+;    |lpm_divide:Mod0|                   ; 120 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopLevel|lpm_divide:Mod0                                                                                 ; lpm_divide          ; work         ;
+;       |lpm_divide_u4m:auto_generated|  ; 120 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopLevel|lpm_divide:Mod0|lpm_divide_u4m:auto_generated                                                   ; lpm_divide_u4m      ; work         ;
+;          |sign_div_unsign_1nh:divider| ; 120 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopLevel|lpm_divide:Mod0|lpm_divide_u4m:auto_generated|sign_div_unsign_1nh:divider                       ; sign_div_unsign_1nh ; work         ;
+;             |alt_u_div_82f:divider|    ; 120 (120)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopLevel|lpm_divide:Mod0|lpm_divide_u4m:auto_generated|sign_div_unsign_1nh:divider|alt_u_div_82f:divider ; alt_u_div_82f       ; work         ;
+;    |lpm_divide:Mod1|                   ; 78 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopLevel|lpm_divide:Mod1                                                                                 ; lpm_divide          ; work         ;
+;       |lpm_divide_u4m:auto_generated|  ; 78 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopLevel|lpm_divide:Mod1|lpm_divide_u4m:auto_generated                                                   ; lpm_divide_u4m      ; work         ;
+;          |sign_div_unsign_1nh:divider| ; 78 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopLevel|lpm_divide:Mod1|lpm_divide_u4m:auto_generated|sign_div_unsign_1nh:divider                       ; sign_div_unsign_1nh ; work         ;
+;             |alt_u_div_82f:divider|    ; 78 (78)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopLevel|lpm_divide:Mod1|lpm_divide_u4m:auto_generated|sign_div_unsign_1nh:divider|alt_u_div_82f:divider ; alt_u_div_82f       ; work         ;
+;    |lpm_divide:Mod2|                   ; 19 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopLevel|lpm_divide:Mod2                                                                                 ; lpm_divide          ; work         ;
+;       |lpm_divide_u4m:auto_generated|  ; 19 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopLevel|lpm_divide:Mod2|lpm_divide_u4m:auto_generated                                                   ; lpm_divide_u4m      ; work         ;
+;          |sign_div_unsign_1nh:divider| ; 19 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopLevel|lpm_divide:Mod2|lpm_divide_u4m:auto_generated|sign_div_unsign_1nh:divider                       ; sign_div_unsign_1nh ; work         ;
+;             |alt_u_div_82f:divider|    ; 19 (19)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |TopLevel|lpm_divide:Mod2|lpm_divide_u4m:auto_generated|sign_div_unsign_1nh:divider|alt_u_div_82f:divider ; alt_u_div_82f       ; work         ;
++----------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------------------------------------------------------------------------------------+---------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++----------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                                ;
++-----------------------------------------------------+---------------------+------------------------+
+; Latch Name                                          ; Latch Enable Signal ; Free of Timing Hazards ;
++-----------------------------------------------------+---------------------+------------------------+
+; HEX0[0]$latch                                       ; GND                 ; yes                    ;
+; HEX0[1]$latch                                       ; GND                 ; yes                    ;
+; HEX0[2]$latch                                       ; GND                 ; yes                    ;
+; HEX0[3]$latch                                       ; GND                 ; yes                    ;
+; HEX0[4]$latch                                       ; GND                 ; yes                    ;
+; HEX0[5]$latch                                       ; GND                 ; yes                    ;
+; HEX0[6]$latch                                       ; GND                 ; yes                    ;
+; HEX1[0]$latch                                       ; GND                 ; yes                    ;
+; HEX1[1]$latch                                       ; GND                 ; yes                    ;
+; HEX1[2]$latch                                       ; GND                 ; yes                    ;
+; HEX1[3]$latch                                       ; GND                 ; yes                    ;
+; HEX1[4]$latch                                       ; GND                 ; yes                    ;
+; HEX1[5]$latch                                       ; GND                 ; yes                    ;
+; HEX1[6]$latch                                       ; GND                 ; yes                    ;
+; HEX2[0]$latch                                       ; GND                 ; yes                    ;
+; HEX2[1]$latch                                       ; GND                 ; yes                    ;
+; HEX2[2]$latch                                       ; GND                 ; yes                    ;
+; HEX2[3]$latch                                       ; GND                 ; yes                    ;
+; HEX2[4]$latch                                       ; GND                 ; yes                    ;
+; HEX2[5]$latch                                       ; GND                 ; yes                    ;
+; HEX2[6]$latch                                       ; GND                 ; yes                    ;
+; Number of user-specified and inferred latches = 21  ;                     ;                        ;
++-----------------------------------------------------+---------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 0     ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                           ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+; 5:1                ; 3 bits    ; 9 LEs         ; 9 LEs                ; 0 LEs                  ; No         ; |TopLevel|HEX0[5]          ;
+; 5:1                ; 3 bits    ; 9 LEs         ; 9 LEs                ; 0 LEs                  ; No         ; |TopLevel|HEX1[6]          ;
+; 5:1                ; 3 bits    ; 9 LEs         ; 9 LEs                ; 0 LEs                  ; No         ; |TopLevel|HEX2[0]          ;
+; 7:1                ; 3 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |TopLevel|HEX0[4]          ;
+; 7:1                ; 3 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |TopLevel|HEX1[4]          ;
+; 7:1                ; 3 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |TopLevel|HEX2[1]          ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+
+
++------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: lpm_divide:Mod0 ;
++------------------------+----------------+------------------------+
+; Parameter Name         ; Value          ; Type                   ;
++------------------------+----------------+------------------------+
+; LPM_WIDTHN             ; 10             ; Untyped                ;
+; LPM_WIDTHD             ; 10             ; Untyped                ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_PIPELINE           ; 0              ; Untyped                ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                ;
+; CBXI_PARAMETER         ; lpm_divide_u4m ; Untyped                ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY             ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY           ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE           ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE         ;
++------------------------+----------------+------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: lpm_divide:Mod1 ;
++------------------------+----------------+------------------------+
+; Parameter Name         ; Value          ; Type                   ;
++------------------------+----------------+------------------------+
+; LPM_WIDTHN             ; 10             ; Untyped                ;
+; LPM_WIDTHD             ; 10             ; Untyped                ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_PIPELINE           ; 0              ; Untyped                ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                ;
+; CBXI_PARAMETER         ; lpm_divide_u4m ; Untyped                ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY             ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY           ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE           ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE         ;
++------------------------+----------------+------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: lpm_divide:Mod2 ;
++------------------------+----------------+------------------------+
+; Parameter Name         ; Value          ; Type                   ;
++------------------------+----------------+------------------------+
+; LPM_WIDTHN             ; 10             ; Untyped                ;
+; LPM_WIDTHD             ; 10             ; Untyped                ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_PIPELINE           ; 0              ; Untyped                ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                ;
+; CBXI_PARAMETER         ; lpm_divide_u4m ; Untyped                ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY             ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY           ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE           ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE         ;
++------------------------+----------------+------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; arriav_lcell_comb     ; 346                         ;
+;     arith             ; 90                          ;
+;         0 data inputs ; 18                          ;
+;         1 data inputs ; 9                           ;
+;         2 data inputs ; 5                           ;
+;         3 data inputs ; 37                          ;
+;         4 data inputs ; 21                          ;
+;     normal            ; 232                         ;
+;         0 data inputs ; 1                           ;
+;         2 data inputs ; 67                          ;
+;         3 data inputs ; 68                          ;
+;         4 data inputs ; 29                          ;
+;         5 data inputs ; 36                          ;
+;         6 data inputs ; 31                          ;
+;     shared            ; 24                          ;
+;         0 data inputs ; 3                           ;
+;         1 data inputs ; 21                          ;
+; boundary_port         ; 41                          ;
+;                       ;                             ;
+; Max LUT depth         ; 16.20                       ;
+; Average LUT depth     ; 12.75                       ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:01     ;
++----------------+--------------+
+
+
 +-------------------------------+
 ; Analysis & Synthesis Messages ;
 +-------------------------------+
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
-    Info: Processing started: Wed Feb 27 15:17:26 2019
+    Info: Processing started: Mon Mar 11 12:13:52 2019
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off DE0_CV_Default -c DE0_CV_Default
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
-Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
-Error (10500): VHDL syntax error at TopLevel.vhd(24) near text ")";  expecting an identifier, or "constant", or "file", or "signal", or "variable" File: /home/borg/Documents/Insper/3sem/Z01.1-Cistemas/Projetos/C-LogicaCombinacional/src/TopLevel.vhd Line: 24
-Info (12021): Found 0 design units, including 0 entities, in source file /home/borg/Documents/Insper/3sem/Z01.1-Cistemas/Projetos/C-LogicaCombinacional/src/TopLevel.vhd
-Info (12021): Found 2 design units, including 1 entities, in source file /home/borg/Documents/Insper/3sem/Z01.1-Cistemas/Projetos/C-LogicaCombinacional/src/rtl/Or16.vhd
-    Info (12022): Found design unit 1: Or16-arch File: /home/borg/Documents/Insper/3sem/Z01.1-Cistemas/Projetos/C-LogicaCombinacional/src/rtl/Or16.vhd Line: 11
-    Info (12023): Found entity 1: Or16 File: /home/borg/Documents/Insper/3sem/Z01.1-Cistemas/Projetos/C-LogicaCombinacional/src/rtl/Or16.vhd Line: 4
-Info (12021): Found 2 design units, including 1 entities, in source file /home/borg/Documents/Insper/3sem/Z01.1-Cistemas/Projetos/C-LogicaCombinacional/src/rtl/Or8Way.vhd
-    Info (12022): Found design unit 1: Or8Way-arch File: /home/borg/Documents/Insper/3sem/Z01.1-Cistemas/Projetos/C-LogicaCombinacional/src/rtl/Or8Way.vhd Line: 17
-    Info (12023): Found entity 1: Or8Way File: /home/borg/Documents/Insper/3sem/Z01.1-Cistemas/Projetos/C-LogicaCombinacional/src/rtl/Or8Way.vhd Line: 4
-Info (12021): Found 2 design units, including 1 entities, in source file /home/borg/Documents/Insper/3sem/Z01.1-Cistemas/Projetos/C-LogicaCombinacional/src/rtl/Not16.vhd
-    Info (12022): Found design unit 1: Not16-arch File: /home/borg/Documents/Insper/3sem/Z01.1-Cistemas/Projetos/C-LogicaCombinacional/src/rtl/Not16.vhd Line: 10
-    Info (12023): Found entity 1: Not16 File: /home/borg/Documents/Insper/3sem/Z01.1-Cistemas/Projetos/C-LogicaCombinacional/src/rtl/Not16.vhd Line: 4
-Info (12021): Found 2 design units, including 1 entities, in source file /home/borg/Documents/Insper/3sem/Z01.1-Cistemas/Projetos/C-LogicaCombinacional/src/rtl/Nor8Way.vhd
-    Info (12022): Found design unit 1: Nor8Way-arch File: /home/borg/Documents/Insper/3sem/Z01.1-Cistemas/Projetos/C-LogicaCombinacional/src/rtl/Nor8Way.vhd Line: 17
-    Info (12023): Found entity 1: Nor8Way File: /home/borg/Documents/Insper/3sem/Z01.1-Cistemas/Projetos/C-LogicaCombinacional/src/rtl/Nor8Way.vhd Line: 4
-Info (12021): Found 2 design units, including 1 entities, in source file /home/borg/Documents/Insper/3sem/Z01.1-Cistemas/Projetos/C-LogicaCombinacional/src/rtl/Nand.vhd
-    Info (12022): Found design unit 1: nand_z01-rtl File: /home/borg/Documents/Insper/3sem/Z01.1-Cistemas/Projetos/C-LogicaCombinacional/src/rtl/Nand.vhd Line: 12
-    Info (12023): Found entity 1: nand_z01 File: /home/borg/Documents/Insper/3sem/Z01.1-Cistemas/Projetos/C-LogicaCombinacional/src/rtl/Nand.vhd Line: 4
-Info (12021): Found 2 design units, including 1 entities, in source file /home/borg/Documents/Insper/3sem/Z01.1-Cistemas/Projetos/C-LogicaCombinacional/src/rtl/Mux16.vhd
-    Info (12022): Found design unit 1: Mux16-arch File: /home/borg/Documents/Insper/3sem/Z01.1-Cistemas/Projetos/C-LogicaCombinacional/src/rtl/Mux16.vhd Line: 12
-    Info (12023): Found entity 1: Mux16 File: /home/borg/Documents/Insper/3sem/Z01.1-Cistemas/Projetos/C-LogicaCombinacional/src/rtl/Mux16.vhd Line: 4
-Info (12021): Found 2 design units, including 1 entities, in source file /home/borg/Documents/Insper/3sem/Z01.1-Cistemas/Projetos/C-LogicaCombinacional/src/rtl/Mux8Way16.vhd
-    Info (12022): Found design unit 1: Mux8Way16-arch File: /home/borg/Documents/Insper/3sem/Z01.1-Cistemas/Projetos/C-LogicaCombinacional/src/rtl/Mux8Way16.vhd Line: 18
-    Info (12023): Found entity 1: Mux8Way16 File: /home/borg/Documents/Insper/3sem/Z01.1-Cistemas/Projetos/C-LogicaCombinacional/src/rtl/Mux8Way16.vhd Line: 4
-Info (12021): Found 2 design units, including 1 entities, in source file /home/borg/Documents/Insper/3sem/Z01.1-Cistemas/Projetos/C-LogicaCombinacional/src/rtl/Mux8Way.vhd
-    Info (12022): Found design unit 1: Mux8Way-arch File: /home/borg/Documents/Insper/3sem/Z01.1-Cistemas/Projetos/C-LogicaCombinacional/src/rtl/Mux8Way.vhd Line: 18
-    Info (12023): Found entity 1: Mux8Way File: /home/borg/Documents/Insper/3sem/Z01.1-Cistemas/Projetos/C-LogicaCombinacional/src/rtl/Mux8Way.vhd Line: 4
-Info (12021): Found 2 design units, including 1 entities, in source file /home/borg/Documents/Insper/3sem/Z01.1-Cistemas/Projetos/C-LogicaCombinacional/src/rtl/Mux4Way16.vhd
-    Info (12022): Found design unit 1: Mux4Way16-arch File: /home/borg/Documents/Insper/3sem/Z01.1-Cistemas/Projetos/C-LogicaCombinacional/src/rtl/Mux4Way16.vhd Line: 14
-    Info (12023): Found entity 1: Mux4Way16 File: /home/borg/Documents/Insper/3sem/Z01.1-Cistemas/Projetos/C-LogicaCombinacional/src/rtl/Mux4Way16.vhd Line: 4
-Info (12021): Found 2 design units, including 1 entities, in source file /home/borg/Documents/Insper/3sem/Z01.1-Cistemas/Projetos/C-LogicaCombinacional/src/rtl/Mux4Way.vhd
-    Info (12022): Found design unit 1: Mux4Way-arch File: /home/borg/Documents/Insper/3sem/Z01.1-Cistemas/Projetos/C-LogicaCombinacional/src/rtl/Mux4Way.vhd Line: 14
-    Info (12023): Found entity 1: Mux4Way File: /home/borg/Documents/Insper/3sem/Z01.1-Cistemas/Projetos/C-LogicaCombinacional/src/rtl/Mux4Way.vhd Line: 4
-Info (12021): Found 2 design units, including 1 entities, in source file /home/borg/Documents/Insper/3sem/Z01.1-Cistemas/Projetos/C-LogicaCombinacional/src/rtl/Mux2Way.vhd
-    Info (12022): Found design unit 1: Mux2Way-arch File: /home/borg/Documents/Insper/3sem/Z01.1-Cistemas/Projetos/C-LogicaCombinacional/src/rtl/Mux2Way.vhd Line: 12
-    Info (12023): Found entity 1: Mux2Way File: /home/borg/Documents/Insper/3sem/Z01.1-Cistemas/Projetos/C-LogicaCombinacional/src/rtl/Mux2Way.vhd Line: 4
-Info (12021): Found 2 design units, including 1 entities, in source file /home/borg/Documents/Insper/3sem/Z01.1-Cistemas/Projetos/C-LogicaCombinacional/src/rtl/DMux8Way.vhd
-    Info (12022): Found design unit 1: DMux8Way-arch File: /home/borg/Documents/Insper/3sem/Z01.1-Cistemas/Projetos/C-LogicaCombinacional/src/rtl/DMux8Way.vhd Line: 18
-    Info (12023): Found entity 1: DMux8Way File: /home/borg/Documents/Insper/3sem/Z01.1-Cistemas/Projetos/C-LogicaCombinacional/src/rtl/DMux8Way.vhd Line: 4
-Info (12021): Found 2 design units, including 1 entities, in source file /home/borg/Documents/Insper/3sem/Z01.1-Cistemas/Projetos/C-LogicaCombinacional/src/rtl/DMux4Way.vhd
-    Info (12022): Found design unit 1: DMux4Way-rtl File: /home/borg/Documents/Insper/3sem/Z01.1-Cistemas/Projetos/C-LogicaCombinacional/src/rtl/DMux4Way.vhd Line: 14
-    Info (12023): Found entity 1: DMux4Way File: /home/borg/Documents/Insper/3sem/Z01.1-Cistemas/Projetos/C-LogicaCombinacional/src/rtl/DMux4Way.vhd Line: 4
-Info (12021): Found 2 design units, including 1 entities, in source file /home/borg/Documents/Insper/3sem/Z01.1-Cistemas/Projetos/C-LogicaCombinacional/src/rtl/DMux2Way.vhd
-    Info (12022): Found design unit 1: DMux2Way-rtl File: /home/borg/Documents/Insper/3sem/Z01.1-Cistemas/Projetos/C-LogicaCombinacional/src/rtl/DMux2Way.vhd Line: 12
-    Info (12023): Found entity 1: DMux2Way File: /home/borg/Documents/Insper/3sem/Z01.1-Cistemas/Projetos/C-LogicaCombinacional/src/rtl/DMux2Way.vhd Line: 4
+Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
+Info (12021): Found 2 design units, including 1 entities, in source file /home/borg/Desktop/Elementos_de_Cistemas/Z01.1-Cistemas/Projetos/C-LogicaCombinacional/src/TopLevel.vhd
+    Info (12022): Found design unit 1: TopLevel-rtl File: /home/borg/Desktop/Elementos_de_Cistemas/Z01.1-Cistemas/Projetos/C-LogicaCombinacional/src/TopLevel.vhd Line: 33
+    Info (12023): Found entity 1: TopLevel File: /home/borg/Desktop/Elementos_de_Cistemas/Z01.1-Cistemas/Projetos/C-LogicaCombinacional/src/TopLevel.vhd Line: 20
+Info (12021): Found 2 design units, including 1 entities, in source file /home/borg/Desktop/Elementos_de_Cistemas/Z01.1-Cistemas/Projetos/C-LogicaCombinacional/src/rtl/Or16.vhd
+    Info (12022): Found design unit 1: Or16-arch File: /home/borg/Desktop/Elementos_de_Cistemas/Z01.1-Cistemas/Projetos/C-LogicaCombinacional/src/rtl/Or16.vhd Line: 11
+    Info (12023): Found entity 1: Or16 File: /home/borg/Desktop/Elementos_de_Cistemas/Z01.1-Cistemas/Projetos/C-LogicaCombinacional/src/rtl/Or16.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file /home/borg/Desktop/Elementos_de_Cistemas/Z01.1-Cistemas/Projetos/C-LogicaCombinacional/src/rtl/Or8Way.vhd
+    Info (12022): Found design unit 1: Or8Way-arch File: /home/borg/Desktop/Elementos_de_Cistemas/Z01.1-Cistemas/Projetos/C-LogicaCombinacional/src/rtl/Or8Way.vhd Line: 17
+    Info (12023): Found entity 1: Or8Way File: /home/borg/Desktop/Elementos_de_Cistemas/Z01.1-Cistemas/Projetos/C-LogicaCombinacional/src/rtl/Or8Way.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file /home/borg/Desktop/Elementos_de_Cistemas/Z01.1-Cistemas/Projetos/C-LogicaCombinacional/src/rtl/Not16.vhd
+    Info (12022): Found design unit 1: Not16-arch File: /home/borg/Desktop/Elementos_de_Cistemas/Z01.1-Cistemas/Projetos/C-LogicaCombinacional/src/rtl/Not16.vhd Line: 10
+    Info (12023): Found entity 1: Not16 File: /home/borg/Desktop/Elementos_de_Cistemas/Z01.1-Cistemas/Projetos/C-LogicaCombinacional/src/rtl/Not16.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file /home/borg/Desktop/Elementos_de_Cistemas/Z01.1-Cistemas/Projetos/C-LogicaCombinacional/src/rtl/Nor8Way.vhd
+    Info (12022): Found design unit 1: Nor8Way-arch File: /home/borg/Desktop/Elementos_de_Cistemas/Z01.1-Cistemas/Projetos/C-LogicaCombinacional/src/rtl/Nor8Way.vhd Line: 18
+    Info (12023): Found entity 1: Nor8Way File: /home/borg/Desktop/Elementos_de_Cistemas/Z01.1-Cistemas/Projetos/C-LogicaCombinacional/src/rtl/Nor8Way.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file /home/borg/Desktop/Elementos_de_Cistemas/Z01.1-Cistemas/Projetos/C-LogicaCombinacional/src/rtl/Nand.vhd
+    Info (12022): Found design unit 1: nand_z01-rtl File: /home/borg/Desktop/Elementos_de_Cistemas/Z01.1-Cistemas/Projetos/C-LogicaCombinacional/src/rtl/Nand.vhd Line: 12
+    Info (12023): Found entity 1: nand_z01 File: /home/borg/Desktop/Elementos_de_Cistemas/Z01.1-Cistemas/Projetos/C-LogicaCombinacional/src/rtl/Nand.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file /home/borg/Desktop/Elementos_de_Cistemas/Z01.1-Cistemas/Projetos/C-LogicaCombinacional/src/rtl/Mux16.vhd
+    Info (12022): Found design unit 1: Mux16-arch File: /home/borg/Desktop/Elementos_de_Cistemas/Z01.1-Cistemas/Projetos/C-LogicaCombinacional/src/rtl/Mux16.vhd Line: 12
+    Info (12023): Found entity 1: Mux16 File: /home/borg/Desktop/Elementos_de_Cistemas/Z01.1-Cistemas/Projetos/C-LogicaCombinacional/src/rtl/Mux16.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file /home/borg/Desktop/Elementos_de_Cistemas/Z01.1-Cistemas/Projetos/C-LogicaCombinacional/src/rtl/Mux8Way16.vhd
+    Info (12022): Found design unit 1: Mux8Way16-arch File: /home/borg/Desktop/Elementos_de_Cistemas/Z01.1-Cistemas/Projetos/C-LogicaCombinacional/src/rtl/Mux8Way16.vhd Line: 18
+    Info (12023): Found entity 1: Mux8Way16 File: /home/borg/Desktop/Elementos_de_Cistemas/Z01.1-Cistemas/Projetos/C-LogicaCombinacional/src/rtl/Mux8Way16.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file /home/borg/Desktop/Elementos_de_Cistemas/Z01.1-Cistemas/Projetos/C-LogicaCombinacional/src/rtl/Mux8Way.vhd
+    Info (12022): Found design unit 1: Mux8Way-arch File: /home/borg/Desktop/Elementos_de_Cistemas/Z01.1-Cistemas/Projetos/C-LogicaCombinacional/src/rtl/Mux8Way.vhd Line: 18
+    Info (12023): Found entity 1: Mux8Way File: /home/borg/Desktop/Elementos_de_Cistemas/Z01.1-Cistemas/Projetos/C-LogicaCombinacional/src/rtl/Mux8Way.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file /home/borg/Desktop/Elementos_de_Cistemas/Z01.1-Cistemas/Projetos/C-LogicaCombinacional/src/rtl/Mux4Way16.vhd
+    Info (12022): Found design unit 1: Mux4Way16-arch File: /home/borg/Desktop/Elementos_de_Cistemas/Z01.1-Cistemas/Projetos/C-LogicaCombinacional/src/rtl/Mux4Way16.vhd Line: 14
+    Info (12023): Found entity 1: Mux4Way16 File: /home/borg/Desktop/Elementos_de_Cistemas/Z01.1-Cistemas/Projetos/C-LogicaCombinacional/src/rtl/Mux4Way16.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file /home/borg/Desktop/Elementos_de_Cistemas/Z01.1-Cistemas/Projetos/C-LogicaCombinacional/src/rtl/Mux4Way.vhd
+    Info (12022): Found design unit 1: Mux4Way-arch File: /home/borg/Desktop/Elementos_de_Cistemas/Z01.1-Cistemas/Projetos/C-LogicaCombinacional/src/rtl/Mux4Way.vhd Line: 14
+    Info (12023): Found entity 1: Mux4Way File: /home/borg/Desktop/Elementos_de_Cistemas/Z01.1-Cistemas/Projetos/C-LogicaCombinacional/src/rtl/Mux4Way.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file /home/borg/Desktop/Elementos_de_Cistemas/Z01.1-Cistemas/Projetos/C-LogicaCombinacional/src/rtl/Mux2Way.vhd
+    Info (12022): Found design unit 1: Mux2Way-arch File: /home/borg/Desktop/Elementos_de_Cistemas/Z01.1-Cistemas/Projetos/C-LogicaCombinacional/src/rtl/Mux2Way.vhd Line: 12
+    Info (12023): Found entity 1: Mux2Way File: /home/borg/Desktop/Elementos_de_Cistemas/Z01.1-Cistemas/Projetos/C-LogicaCombinacional/src/rtl/Mux2Way.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file /home/borg/Desktop/Elementos_de_Cistemas/Z01.1-Cistemas/Projetos/C-LogicaCombinacional/src/rtl/DMux8Way.vhd
+    Info (12022): Found design unit 1: DMux8Way-arch File: /home/borg/Desktop/Elementos_de_Cistemas/Z01.1-Cistemas/Projetos/C-LogicaCombinacional/src/rtl/DMux8Way.vhd Line: 18
+    Info (12023): Found entity 1: DMux8Way File: /home/borg/Desktop/Elementos_de_Cistemas/Z01.1-Cistemas/Projetos/C-LogicaCombinacional/src/rtl/DMux8Way.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file /home/borg/Desktop/Elementos_de_Cistemas/Z01.1-Cistemas/Projetos/C-LogicaCombinacional/src/rtl/DMux4Way.vhd
+    Info (12022): Found design unit 1: DMux4Way-rtl File: /home/borg/Desktop/Elementos_de_Cistemas/Z01.1-Cistemas/Projetos/C-LogicaCombinacional/src/rtl/DMux4Way.vhd Line: 14
+    Info (12023): Found entity 1: DMux4Way File: /home/borg/Desktop/Elementos_de_Cistemas/Z01.1-Cistemas/Projetos/C-LogicaCombinacional/src/rtl/DMux4Way.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file /home/borg/Desktop/Elementos_de_Cistemas/Z01.1-Cistemas/Projetos/C-LogicaCombinacional/src/rtl/DMux2Way.vhd
+    Info (12022): Found design unit 1: DMux2Way-rtl File: /home/borg/Desktop/Elementos_de_Cistemas/Z01.1-Cistemas/Projetos/C-LogicaCombinacional/src/rtl/DMux2Way.vhd Line: 12
+    Info (12023): Found entity 1: DMux2Way File: /home/borg/Desktop/Elementos_de_Cistemas/Z01.1-Cistemas/Projetos/C-LogicaCombinacional/src/rtl/DMux2Way.vhd Line: 4
 Warning (12019): Can't analyze file -- file ../src/rtl/BarrelShifter16.vhd is missing
 Warning (12019): Can't analyze file -- file ../src/rtl/BarrelShifter8.vhd is missing
-Info (12021): Found 2 design units, including 1 entities, in source file /home/borg/Documents/Insper/3sem/Z01.1-Cistemas/Projetos/C-LogicaCombinacional/src/rtl/And16.vhd
-    Info (12022): Found design unit 1: And16-arch File: /home/borg/Documents/Insper/3sem/Z01.1-Cistemas/Projetos/C-LogicaCombinacional/src/rtl/And16.vhd Line: 11
-    Info (12023): Found entity 1: And16 File: /home/borg/Documents/Insper/3sem/Z01.1-Cistemas/Projetos/C-LogicaCombinacional/src/rtl/And16.vhd Line: 4
-Error: Quartus Prime Analysis & Synthesis was unsuccessful. 1 error, 3 warnings
-    Error: Peak virtual memory: 1014 megabytes
-    Error: Processing ended: Wed Feb 27 15:17:34 2019
-    Error: Elapsed time: 00:00:08
-    Error: Total CPU time (on all processors): 00:00:22
+Info (12021): Found 2 design units, including 1 entities, in source file /home/borg/Desktop/Elementos_de_Cistemas/Z01.1-Cistemas/Projetos/C-LogicaCombinacional/src/rtl/And16.vhd
+    Info (12022): Found design unit 1: And16-arch File: /home/borg/Desktop/Elementos_de_Cistemas/Z01.1-Cistemas/Projetos/C-LogicaCombinacional/src/rtl/And16.vhd Line: 11
+    Info (12023): Found entity 1: And16 File: /home/borg/Desktop/Elementos_de_Cistemas/Z01.1-Cistemas/Projetos/C-LogicaCombinacional/src/rtl/And16.vhd Line: 4
+Info (12127): Elaborating entity "TopLevel" for the top level hierarchy
+Warning (10541): VHDL Signal Declaration warning at TopLevel.vhd(26): used implicit default value for signal "LEDR" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: /home/borg/Desktop/Elementos_de_Cistemas/Z01.1-Cistemas/Projetos/C-LogicaCombinacional/src/TopLevel.vhd Line: 26
+Info (10041): Inferred latch for "HEX2[0]" at TopLevel.vhd(66) File: /home/borg/Desktop/Elementos_de_Cistemas/Z01.1-Cistemas/Projetos/C-LogicaCombinacional/src/TopLevel.vhd Line: 66
+Info (10041): Inferred latch for "HEX2[1]" at TopLevel.vhd(66) File: /home/borg/Desktop/Elementos_de_Cistemas/Z01.1-Cistemas/Projetos/C-LogicaCombinacional/src/TopLevel.vhd Line: 66
+Info (10041): Inferred latch for "HEX2[2]" at TopLevel.vhd(66) File: /home/borg/Desktop/Elementos_de_Cistemas/Z01.1-Cistemas/Projetos/C-LogicaCombinacional/src/TopLevel.vhd Line: 66
+Info (10041): Inferred latch for "HEX2[3]" at TopLevel.vhd(66) File: /home/borg/Desktop/Elementos_de_Cistemas/Z01.1-Cistemas/Projetos/C-LogicaCombinacional/src/TopLevel.vhd Line: 66
+Info (10041): Inferred latch for "HEX2[4]" at TopLevel.vhd(66) File: /home/borg/Desktop/Elementos_de_Cistemas/Z01.1-Cistemas/Projetos/C-LogicaCombinacional/src/TopLevel.vhd Line: 66
+Info (10041): Inferred latch for "HEX2[5]" at TopLevel.vhd(66) File: /home/borg/Desktop/Elementos_de_Cistemas/Z01.1-Cistemas/Projetos/C-LogicaCombinacional/src/TopLevel.vhd Line: 66
+Info (10041): Inferred latch for "HEX2[6]" at TopLevel.vhd(66) File: /home/borg/Desktop/Elementos_de_Cistemas/Z01.1-Cistemas/Projetos/C-LogicaCombinacional/src/TopLevel.vhd Line: 66
+Info (10041): Inferred latch for "HEX1[0]" at TopLevel.vhd(55) File: /home/borg/Desktop/Elementos_de_Cistemas/Z01.1-Cistemas/Projetos/C-LogicaCombinacional/src/TopLevel.vhd Line: 55
+Info (10041): Inferred latch for "HEX1[1]" at TopLevel.vhd(55) File: /home/borg/Desktop/Elementos_de_Cistemas/Z01.1-Cistemas/Projetos/C-LogicaCombinacional/src/TopLevel.vhd Line: 55
+Info (10041): Inferred latch for "HEX1[2]" at TopLevel.vhd(55) File: /home/borg/Desktop/Elementos_de_Cistemas/Z01.1-Cistemas/Projetos/C-LogicaCombinacional/src/TopLevel.vhd Line: 55
+Info (10041): Inferred latch for "HEX1[3]" at TopLevel.vhd(55) File: /home/borg/Desktop/Elementos_de_Cistemas/Z01.1-Cistemas/Projetos/C-LogicaCombinacional/src/TopLevel.vhd Line: 55
+Info (10041): Inferred latch for "HEX1[4]" at TopLevel.vhd(55) File: /home/borg/Desktop/Elementos_de_Cistemas/Z01.1-Cistemas/Projetos/C-LogicaCombinacional/src/TopLevel.vhd Line: 55
+Info (10041): Inferred latch for "HEX1[5]" at TopLevel.vhd(55) File: /home/borg/Desktop/Elementos_de_Cistemas/Z01.1-Cistemas/Projetos/C-LogicaCombinacional/src/TopLevel.vhd Line: 55
+Info (10041): Inferred latch for "HEX1[6]" at TopLevel.vhd(55) File: /home/borg/Desktop/Elementos_de_Cistemas/Z01.1-Cistemas/Projetos/C-LogicaCombinacional/src/TopLevel.vhd Line: 55
+Info (10041): Inferred latch for "HEX0[0]" at TopLevel.vhd(44) File: /home/borg/Desktop/Elementos_de_Cistemas/Z01.1-Cistemas/Projetos/C-LogicaCombinacional/src/TopLevel.vhd Line: 44
+Info (10041): Inferred latch for "HEX0[1]" at TopLevel.vhd(44) File: /home/borg/Desktop/Elementos_de_Cistemas/Z01.1-Cistemas/Projetos/C-LogicaCombinacional/src/TopLevel.vhd Line: 44
+Info (10041): Inferred latch for "HEX0[2]" at TopLevel.vhd(44) File: /home/borg/Desktop/Elementos_de_Cistemas/Z01.1-Cistemas/Projetos/C-LogicaCombinacional/src/TopLevel.vhd Line: 44
+Info (10041): Inferred latch for "HEX0[3]" at TopLevel.vhd(44) File: /home/borg/Desktop/Elementos_de_Cistemas/Z01.1-Cistemas/Projetos/C-LogicaCombinacional/src/TopLevel.vhd Line: 44
+Info (10041): Inferred latch for "HEX0[4]" at TopLevel.vhd(44) File: /home/borg/Desktop/Elementos_de_Cistemas/Z01.1-Cistemas/Projetos/C-LogicaCombinacional/src/TopLevel.vhd Line: 44
+Info (10041): Inferred latch for "HEX0[5]" at TopLevel.vhd(44) File: /home/borg/Desktop/Elementos_de_Cistemas/Z01.1-Cistemas/Projetos/C-LogicaCombinacional/src/TopLevel.vhd Line: 44
+Info (10041): Inferred latch for "HEX0[6]" at TopLevel.vhd(44) File: /home/borg/Desktop/Elementos_de_Cistemas/Z01.1-Cistemas/Projetos/C-LogicaCombinacional/src/TopLevel.vhd Line: 44
+Info (278001): Inferred 3 megafunctions from design logic
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Mod0" File: /home/borg/Desktop/Elementos_de_Cistemas/Z01.1-Cistemas/Projetos/C-LogicaCombinacional/src/TopLevel.vhd Line: 44
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Mod1" File: /home/borg/Desktop/Elementos_de_Cistemas/Z01.1-Cistemas/Projetos/C-LogicaCombinacional/src/TopLevel.vhd Line: 55
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Mod2" File: /home/borg/Desktop/Elementos_de_Cistemas/Z01.1-Cistemas/Projetos/C-LogicaCombinacional/src/TopLevel.vhd Line: 66
+Info (12130): Elaborated megafunction instantiation "lpm_divide:Mod0" File: /home/borg/Desktop/Elementos_de_Cistemas/Z01.1-Cistemas/Projetos/C-LogicaCombinacional/src/TopLevel.vhd Line: 44
+Info (12133): Instantiated megafunction "lpm_divide:Mod0" with the following parameter: File: /home/borg/Desktop/Elementos_de_Cistemas/Z01.1-Cistemas/Projetos/C-LogicaCombinacional/src/TopLevel.vhd Line: 44
+    Info (12134): Parameter "LPM_WIDTHN" = "10"
+    Info (12134): Parameter "LPM_WIDTHD" = "10"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_u4m.tdf
+    Info (12023): Found entity 1: lpm_divide_u4m File: /home/borg/Desktop/Elementos_de_Cistemas/Z01.1-Cistemas/Projetos/C-LogicaCombinacional/Quartus/db/lpm_divide_u4m.tdf Line: 24
+Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_1nh.tdf
+    Info (12023): Found entity 1: sign_div_unsign_1nh File: /home/borg/Desktop/Elementos_de_Cistemas/Z01.1-Cistemas/Projetos/C-LogicaCombinacional/Quartus/db/sign_div_unsign_1nh.tdf Line: 24
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_82f.tdf
+    Info (12023): Found entity 1: alt_u_div_82f File: /home/borg/Desktop/Elementos_de_Cistemas/Z01.1-Cistemas/Projetos/C-LogicaCombinacional/Quartus/db/alt_u_div_82f.tdf Line: 22
+Info (12130): Elaborated megafunction instantiation "lpm_divide:Mod1" File: /home/borg/Desktop/Elementos_de_Cistemas/Z01.1-Cistemas/Projetos/C-LogicaCombinacional/src/TopLevel.vhd Line: 55
+Info (12133): Instantiated megafunction "lpm_divide:Mod1" with the following parameter: File: /home/borg/Desktop/Elementos_de_Cistemas/Z01.1-Cistemas/Projetos/C-LogicaCombinacional/src/TopLevel.vhd Line: 55
+    Info (12134): Parameter "LPM_WIDTHN" = "10"
+    Info (12134): Parameter "LPM_WIDTHD" = "10"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12130): Elaborated megafunction instantiation "lpm_divide:Mod2" File: /home/borg/Desktop/Elementos_de_Cistemas/Z01.1-Cistemas/Projetos/C-LogicaCombinacional/src/TopLevel.vhd Line: 66
+Info (12133): Instantiated megafunction "lpm_divide:Mod2" with the following parameter: File: /home/borg/Desktop/Elementos_de_Cistemas/Z01.1-Cistemas/Projetos/C-LogicaCombinacional/src/TopLevel.vhd Line: 66
+    Info (12134): Parameter "LPM_WIDTHN" = "10"
+    Info (12134): Parameter "LPM_WIDTHD" = "10"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "LEDR[0]" is stuck at GND File: /home/borg/Desktop/Elementos_de_Cistemas/Z01.1-Cistemas/Projetos/C-LogicaCombinacional/src/TopLevel.vhd Line: 26
+    Warning (13410): Pin "LEDR[1]" is stuck at GND File: /home/borg/Desktop/Elementos_de_Cistemas/Z01.1-Cistemas/Projetos/C-LogicaCombinacional/src/TopLevel.vhd Line: 26
+    Warning (13410): Pin "LEDR[2]" is stuck at GND File: /home/borg/Desktop/Elementos_de_Cistemas/Z01.1-Cistemas/Projetos/C-LogicaCombinacional/src/TopLevel.vhd Line: 26
+    Warning (13410): Pin "LEDR[3]" is stuck at GND File: /home/borg/Desktop/Elementos_de_Cistemas/Z01.1-Cistemas/Projetos/C-LogicaCombinacional/src/TopLevel.vhd Line: 26
+    Warning (13410): Pin "LEDR[4]" is stuck at GND File: /home/borg/Desktop/Elementos_de_Cistemas/Z01.1-Cistemas/Projetos/C-LogicaCombinacional/src/TopLevel.vhd Line: 26
+    Warning (13410): Pin "LEDR[5]" is stuck at GND File: /home/borg/Desktop/Elementos_de_Cistemas/Z01.1-Cistemas/Projetos/C-LogicaCombinacional/src/TopLevel.vhd Line: 26
+    Warning (13410): Pin "LEDR[6]" is stuck at GND File: /home/borg/Desktop/Elementos_de_Cistemas/Z01.1-Cistemas/Projetos/C-LogicaCombinacional/src/TopLevel.vhd Line: 26
+    Warning (13410): Pin "LEDR[7]" is stuck at GND File: /home/borg/Desktop/Elementos_de_Cistemas/Z01.1-Cistemas/Projetos/C-LogicaCombinacional/src/TopLevel.vhd Line: 26
+    Warning (13410): Pin "LEDR[8]" is stuck at GND File: /home/borg/Desktop/Elementos_de_Cistemas/Z01.1-Cistemas/Projetos/C-LogicaCombinacional/src/TopLevel.vhd Line: 26
+    Warning (13410): Pin "LEDR[9]" is stuck at GND File: /home/borg/Desktop/Elementos_de_Cistemas/Z01.1-Cistemas/Projetos/C-LogicaCombinacional/src/TopLevel.vhd Line: 26
+Info (286030): Timing-Driven Synthesis is running
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 386 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 10 input pins
+    Info (21059): Implemented 31 output pins
+    Info (21061): Implemented 345 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 15 warnings
+    Info: Peak virtual memory: 1039 megabytes
+    Info: Processing ended: Mon Mar 11 12:14:05 2019
+    Info: Elapsed time: 00:00:13
+    Info: Total CPU time (on all processors): 00:00:29
 
 
