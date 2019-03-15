@@ -43,16 +43,17 @@ begin
     a <= x"0000";
     wait until clk'event and clk='1';
     assert(zr = '1') report "zr não é 0 quando a=0000";
-    assert(ng = '0') report "ng não é 0 quando a=0000";
+    assert(ng = '0') report "ng não é 1 quando a=0000";
     wait until clk'event and clk='1';
     a <= x"8000";
     wait until clk'event and clk='1';
-    assert(zr = '0') report "zr não é 0 quando a=8000";
+    assert(zr = '0') report "zr não é 1 quando a=8000";
     assert(ng = '1') report "ng não é 0 quando a=8000";
+    wait until clk'event and clk='1';
     a <= x"5555";
     wait until clk'event and clk='1';
-    assert(zr = '0') report "zr não é 0 quando a=5555";
-    assert(ng = '0') report "ng não é 0 quando a=8555";
+    assert(zr = '0') report "zr não é 1 quando a=5555";
+    assert(ng = '0') report "ng não é 1 quando a=5555";
 
     --wait for 200 ps;
     --  assert(outQ = "1010101010101010")  report "Falha em teste: 6" severity error;
