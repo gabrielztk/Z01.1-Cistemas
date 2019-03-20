@@ -3,11 +3,11 @@
 
 
 FullAdder.vhd
-#HalfAdder.vhd
-#Add16.vhd
-#Inc16.vhd
-#comparador16.vhd
-#inversor16.vhd
-#zerador16.vhd
-#ALU.vhd
+HalfAdder.vhd
+Add16.vhd
+Inc16.vhd
+comparador16.vhd
+nversor16.vhd
+zerador16.vhd
+ALU.vhd
   
