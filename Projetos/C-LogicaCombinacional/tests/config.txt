@@ -8,6 +8,7 @@
 #                                    #
 ######################################
 
+BarrelShifter16.vhd
 Nor8Way.vhd
 And16.vhd
 Not16.vhd
