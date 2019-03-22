@@ -15,11 +15,23 @@ use ieee.std_logic_1164.all;
 		);
 	end entity;
 
+
 architecture arch of FlipFlopD is
   -- Aqui declaramos sinais (fios auxiliares)
   -- e componentes (outros módulos) que serao
   -- utilizados nesse modulo.
 
 begin
+
+	process(clock, clear, preset)
+		begin
+	  		if (clear = '1') then
+	     		Q <= '0';
+	     	elsif(preset = '1') then
+	     		Q <= '1';
+	  		elsif(rising_edge(clock)) then
+	     		Q <= D;
+	  	end if;
+	end process;
 
 end architecture;
