@@ -15,7 +15,7 @@ entity Ram512 is
 	);
 end entity;
 
-architecture arch of Ram64 is
+architecture arch of Ram512 is
   -- Aqui declaramos sinais (fios auxiliares)
   -- e componentes (outros módulos) que serao
   -- utilizados nesse modulo.
