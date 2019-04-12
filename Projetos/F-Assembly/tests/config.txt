@@ -11,9 +11,12 @@
 #mult 1 10000
 #pow 2 10000
 #sub 1 1000
+<<<<<<< HEAD
 
 # conceito B
 
 #isEven 2 1000
 #palindromo 2 1000
 #stringLength 2 2000
+=======
+>>>>>>> 139d96d771b4d2392c20cf763c827bed615b854e
