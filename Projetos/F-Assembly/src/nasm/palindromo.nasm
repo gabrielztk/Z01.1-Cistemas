@@ -19,3 +19,40 @@
 ;  RAM[13] = r
 ;  RAM[14] = a
 ; 
+
+leaw $10, %A
+movw (%A),%D
+
+leaw $14, %A
+subw %D,(%A),%D
+
+leaw $NOT_PALINDROME, $A
+jne %D
+nop
+
+leaw $11, %A
+movw (%A),%D
+
+leaw $13, %A
+subw %D,(%A),%D
+
+leaw $NOT_PALINDROME, %A
+jne %D
+nop
+
+leaw $PALINDROME, %A
+jmp
+nop
+
+PALINDROME:
+	leaw $0,%A
+	movw $1, (%A)
+	leaw $END_PROGRAM, %A
+	jmp
+	nop
+
+NOT_PALINDROME:
+	leaw $0,%A
+	movw $0, (%A)
+
+END_PROGRAM:
