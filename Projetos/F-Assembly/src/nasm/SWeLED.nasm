@@ -8,4 +8,22 @@
 ; Mesma questão da prova
 
 
+leaw $21185, %A
+movw (%A), %D
+notw %D
+
+leaw $14, %A
+movw %A, %S
+
+andw %S, %D, %D
+
+leaw $1008, %A
+movw %A, %S
+
+orw %S, %D, %D
+
+leaw $21184, %A
+movw %D, (%A)
+
+
 
