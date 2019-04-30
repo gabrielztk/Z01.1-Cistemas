@@ -100,6 +100,8 @@ signal seletor: std_logic_vector(1 downto 0);
 signal seletor2: std_logic_vector(1 downto 0);
 signal out_ram: std_logic_vector(15 downto 0);
 signal temp_led: std_logic_vector(15 downto 0);
+signal SW_temp: std_logic_vector(15 downto 0);
+
 
 begin
 
@@ -139,6 +141,8 @@ regis: component Register16 port map (clock => CLK_SLOW, input => INPUT, load =>
 
 LED <= temp_led(9 downto 0); 
 
-mux: component Mux4Way16 port map (sel => seletor2, a => "000000" & SW, b => out_ram, c => "0000000000000000", d => "0000000000000000", q => OUTPUT);
+SW_temp <= "000000" & SW;
+
+mux: component Mux4Way16 port map (sel => seletor2, a => SW_temp, b => out_ram, c => "0000000000000000", d => "0000000000000000", q => OUTPUT);
 
 END logic;
