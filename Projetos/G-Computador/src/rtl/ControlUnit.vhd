@@ -25,4 +25,48 @@ end entity;
 architecture arch of ControlUnit is
 begin
 
+muxALUI_A <= not instruction(17);
+
+muxAM <= instruction(17) and instruction(14);
+
+muxAMD_ALU <= instruction(17) and not instruction(15);
+
+muxSD_ALU <= instruction(17) and not instruction(13);
+
+zx <= instruction(17) and instruction(12);
+
+nx <= instruction(17) and instruction(11);
+
+zy <= instruction(17) and instruction(10);
+
+ny <= instruction(17) and instruction(9);
+
+f <= instruction(17) and instruction(8);
+
+no <= instruction(17) and instruction(7);
+
+loadA <= not instruction(17) or instruction(6);
+
+loadD <= instruction(17) and instruction(4);
+
+loadS <= instruction(17) and instruction(5);
+
+loadM <= instruction(17) and instruction(3);
+
+loadPC <= '1' when instruction(2 downto 0) = "001" and ng = '0' and zr = '0' and instruction(17) = '1' else
+'1' when instruction(2 downto 0) = "010" and ng = '0' and zr = '1' and instruction(17) = '1' else
+'1' when instruction(2 downto 0) = "010" and ng = '1' and zr = '1' and instruction(17) = '1' else
+'1' when instruction(2 downto 0) = "100" and ng = '0' and zr = '1' and instruction(17) = '1' else
+'1' when instruction(2 downto 0) = "100" and ng = '1' and zr = '1' and instruction(17) = '1' else
+'1' when instruction(2 downto 0) = "011" and ng = '0' and zr = '0' and instruction(17) = '1' else
+'1' when instruction(2 downto 0) = "011" and ng = '0' and zr = '1' and instruction(17) = '1' else
+'1' when instruction(2 downto 0) = "011" and ng = '1' and zr = '1' and instruction(17) = '1' else
+'1' when instruction(2 downto 0) = "101" and ng = '0' and zr = '0' and instruction(17) = '1' else
+'1' when instruction(2 downto 0) = "101" and ng = '1' and zr = '0' and instruction(17) = '1' else
+'1' when instruction(2 downto 0) = "110" and ng = '1' and zr = '0' and instruction(17) = '1' else
+'1' when instruction(2 downto 0) = "101" and ng = '1' and zr = '1' and instruction(17) = '1' else
+'1' when instruction(2 downto 0) = "111" and instruction(17) = '1' else 
+'0';
+
+
 end architecture;
