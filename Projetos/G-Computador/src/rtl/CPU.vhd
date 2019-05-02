@@ -32,16 +32,18 @@ architecture arch of CPU is
 
   component ALU is
     port (
-      x,y:   in STD_LOGIC_VECTOR(15 downto 0);
-      zx:    in STD_LOGIC;
-      nx:    in STD_LOGIC;
-      zy:    in STD_LOGIC;
-      ny:    in STD_LOGIC;
-      f:     in STD_LOGIC;
-      no:    in STD_LOGIC;
-      zr:    out STD_LOGIC;
-      ng:    out STD_LOGIC;
-      saida: out STD_LOGIC_VECTOR(15 downto 0)
+      x,y:   in STD_LOGIC_VECTOR(15 downto 0); -- entradas de dados da ALU
+      zx:    in STD_LOGIC;                     -- zera a entrada x
+      nx:    in STD_LOGIC;                     -- inverte a entrada x
+      zy:    in STD_LOGIC;                     -- zera a entrada y
+      ny:    in STD_LOGIC;                     -- inverte a entrada y
+      f:     in STD_LOGIC;                     -- se 0 calcula x & y, senão x + y
+      no:    in STD_LOGIC;                     -- inverte o valor da saída
+      ds:    in STD_LOGIC;                     -- se 0 shift left, 1 right
+      ns:    in STD_LOGIC_VECTOR(3 downto 0);  -- número de bits do shift
+      zr:    out STD_LOGIC;                    -- setado se saída igual a zero
+      ng:    out STD_LOGIC;                    -- setado se saída é negativa
+      saida: out STD_LOGIC_VECTOR(15 downto 0) -- saída de dados da ALU
       );
   end component;
 
@@ -54,7 +56,7 @@ architecture arch of CPU is
       );
   end component;
 
-  component pc is
+  component PC is
     port(
       clock     : in  STD_LOGIC;
       increment : in  STD_LOGIC;
@@ -98,7 +100,7 @@ architecture arch of CPU is
   signal s_muxALUI_Aout: STD_LOGIC_VECTOR(15 downto 0);
   signal s_muxAM_out: STD_LOGIC_VECTOR(15 downto 0);
   signal s_muxAMD_ALUout: STD_LOGIC_VECTOR(15 downto 0);
-  signal s_muxSDout: STD_LOGIC_VECTOR(15 downto 0);
+  signal s_muxSD_ALUout: STD_LOGIC_VECTOR(15 downto 0);
   signal s_regAout: STD_LOGIC_VECTOR(15 downto 0);
   signal s_regDout: STD_LOGIC_VECTOR(15 downto 0);
   signal s_regSout: STD_LOGIC_VECTOR(15 downto 0);
@@ -108,5 +110,25 @@ architecture arch of CPU is
 
 
 begin
+
+
+  ControlU   : ControlUnit port map(instruction => instruction, zr => c_zr, ng => c_ng, muxALUI_A => c_muxALUI_A, muxAM => c_muxAM, muxAMD_ALU => c_muxAMD_ALU, muxSD_ALU => c_muxSD_ALU, zx => c_zx, nx => c_nx, zy => c_zy, ny => c_ny, f => c_f, no => c_no, loadA => c_loadA, loadD => c_loadD, loadS => c_loadS, loadM => writeM, loadPC => c_loadPC);
+
+  ULA        : ALU port map(x => s_muxSD_ALUout, y => s_muxAMD_ALUout, zx => c_zx, nx => c_nx, zy => c_zy, ny => c_ny, f => c_f, no => c_no, ds => '0', ns => "0000", zr => c_zr, ng => c_ng, saida => s_ALUout);
+
+  PCounter   : PC port map(clock => clock, increment => '1', load => c_loadPC, reset => reset, input => s_regAout, output => s_pcout);
+
+  Aregister  : Register16 port map(clock => clock, input => s_muxALUI_Aout, load => c_loadA, output => s_regAout);
+  Sregister  : Register16 port map(clock => clock, input => s_ALUout,       load => c_loadS, output => s_regSout);
+  Dregister  : Register16 port map(clock => clock, input => s_ALUout,       load => c_loadD, output => s_regDout);
+
+  muxALUI    : Mux16 port map(a => s_ALUout,  b => instruction(15 downto 0), sel => c_muxALUI_A,  q => s_muxALUI_Aout);
+  muxSD      : Mux16 port map(a => s_regSout, b => s_regDout,   sel => c_muxSD_ALU,  q => s_muxSD_ALUout);
+  muxAMD     : Mux16 port map(a => s_regDout, b => s_muxAM_out, sel => c_muxAMD_ALU, q => s_muxAMD_ALUout);
+  muxAM      : Mux16 port map(a => s_regAout, b => inM,         sel => c_muxAM,      q => s_muxAM_out);
+
+  outM <= s_ALUout;
+  addressM <= s_regAout(14 downto 0);
+  pcout <= s_pcout(14 downto 0);
 
 end architecture;
