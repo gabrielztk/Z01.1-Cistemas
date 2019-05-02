@@ -119,7 +119,7 @@ seletor2 <= "00" when ("101001011000001" = ADDRESS) else
 
 demux: Dmux4Way port map (a => LOAD, sel => seletor, q0 => dmux(0), q1 => dmux(1), q2 => dmux(2), q3 => dmux(3));
 
-ram_16: RAM16K port map (clock => CLK_FAST, address => ADDRESS(13 downto 0), data => INPUT, wren => dmux(0), q => out_ram);
+RAM: RAM16K port map (clock => CLK_FAST, address => ADDRESS(13 downto 0), data => INPUT, wren => dmux(0), q => out_ram);
 
 display: Screen  port map (
           RST         => RST,
