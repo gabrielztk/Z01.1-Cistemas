@@ -25,7 +25,7 @@ public class ParserTest {
      */
     public ParserTest() {
         try {
-            parser = new Parser("Assembler/src/test/resources/testEmpty.nasm");
+            parser = new Parser("src/test/resources/testEmpty.nasm");
         } catch(Exception e) {
             e.printStackTrace();
         }
