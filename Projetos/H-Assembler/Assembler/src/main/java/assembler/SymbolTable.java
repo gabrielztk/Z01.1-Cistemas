@@ -5,6 +5,8 @@
 
 package assembler;
 
+import org.omg.Messaging.SYNC_WITH_TRANSPORT;
+
 import java.util.HashMap;
 
 /**
@@ -30,7 +32,7 @@ public class SymbolTable {
      * @param  address símbolo a ser armazenado na tabela de símbolos.
      */
     public void addEntry(String symbol, int address) {
-
+        symbolTable.put(symbol, address);
     }
 
     /**
@@ -39,7 +41,7 @@ public class SymbolTable {
      * @return Verdadeiro se símbolo está na tabela de símbolos, Falso se não está na tabela de símbolos.
      */
     public Boolean contains(String symbol){
-    	return false;
+    	return symbolTable.containsKey(symbol);
     }
 
     /**
@@ -48,15 +50,42 @@ public class SymbolTable {
      * @return valor numérico associado ao símbolo procurado.
      */
     public Integer getAddress(String symbol) {
-    	return null;
+        if (symbolTable.containsKey(symbol)) {
+            return symbolTable.get(symbol);
+        } else {
+            return null;
+        }
     }
-
+    
     /**
     * Cria os simbolos padroes na tabela
     * ref:
     */
     public void initialize() {
+
         this.addEntry("R0", 0);
+        this.addEntry("R1", 1);
+        this.addEntry("R2", 2);
+        this.addEntry("R3", 3);
+        this.addEntry("R4", 4);
+        this.addEntry("R5", 5);
+        this.addEntry("R6", 6);
+        this.addEntry("R7", 7);
+        this.addEntry("R8", 8);
+        this.addEntry("R9", 9);
+        this.addEntry("R10", 10);
+        this.addEntry("R11", 11);
+        this.addEntry("R12", 12);
+        this.addEntry("R13", 13);
+        this.addEntry("R14", 14);
+        this.addEntry("R15", 15);
+
+        this.addEntry("SCREEN", 16384);
+        this.addEntry("SP", 0);
+        this.addEntry("LCL", 1);
+        this.addEntry("ARG", 2);
+        this.addEntry("THIS", 3);
+        this.addEntry("THAT", 4);
 
     }
 
