@@ -50,43 +50,43 @@ public class Parser {
      * @return Verdadeiro se ainda há instruções, Falso se as instruções terminaram.
      */
     public Boolean advance() throws IOException {
-        currentLine = fileReader.readLine();
+        Boolean next_line;
+        try {
+            currentLine = fileReader.readLine();
 
-        while (currentLine != null){
-            boolean valido = true;
-
-            currentLine = currentLine.trim();
-
-            if(currentLine.isEmpty()) valido= false;
-
-            if(currentLine.contains(":")) {
-                currentLine = "";
-                valido = false;
+            if (currentLine != null) {
+                next_line = true;
             }
 
-            if(valido != false){
-                if(currentLine.contains(";")){
-                    String[] parts = currentLine.split(";");
+            else {
+                next_line = false;
+            }
 
-                    if(parts[0].isEmpty()){
-                        valido = false;
-                    }else{
-                        this.currentCommand = parts[0].trim();
-                        return true;
+            while (next_line) {
+
+                if (currentLine.length() == 0 || currentLine.charAt(0) == ';') {
+                    currentLine = fileReader.readLine();
+
+                    if (currentLine != null) {
+                        next_line = true;
                     }
 
-                }else {
-                    this.currentCommand = currentLine;
-                    return true;
+                    else {
+                        next_line = false;
+                        return next_line;
+                    }
                 }
 
+                else {
+                    return next_line;
+                }
             }
-
-            currentLine = fileReader.readLine();
+        } catch (IOException e) {
+            e.printStackTrace();
+            return null;
         }
-        return false;
+        return next_line;
     }
-
     /**
      * Retorna o comando "intrução" atual (sem o avanço)
      * @return a instrução atual para ser analilisada

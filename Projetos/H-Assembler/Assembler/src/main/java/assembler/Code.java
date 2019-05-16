@@ -80,7 +80,9 @@ public class Code {
      */
     public static String comp(String[] mnemnonic) {
         String[] teste = new String[2];
-        teste[0] = mnemnonic[1];
+        if(mnemnonic.length > 1){
+            teste[0] = mnemnonic[1];
+        }
         if(mnemnonic.length > 2){
             teste[1] = mnemnonic[2];
         }
