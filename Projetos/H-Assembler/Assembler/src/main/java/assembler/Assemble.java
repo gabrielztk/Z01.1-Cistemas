@@ -43,13 +43,16 @@ public class Assemble {
      * Dependencia : Parser, SymbolTable
      */
     public SymbolTable fillSymbolTable() throws FileNotFoundException, IOException {
+
         Parser parser = new Parser(inputFile);
         int current_line = 0;
 
         while (parser.advance()) {
             if (parser.commandType(parser.command()).equals(Parser.CommandType.L_COMMAND)) {
                 String new_label = parser.label(parser.command());
-                table.addEntry(new_label, current_line);
+                table.addEntry(new_label.replace("$", ""), current_line);
+                System.out.println(new_label);
+
             } else {
                 current_line++;
             }
@@ -61,6 +64,8 @@ public class Assemble {
         while (sec_parser.advance()) {
             if (sec_parser.commandType(sec_parser.command()).equals(Parser.CommandType.A_COMMAND)) {
                 String symbol = sec_parser.symbol(sec_parser.command());
+                System.out.println(symbol);
+
 
                 boolean numerico = true;
 
@@ -74,7 +79,7 @@ public class Assemble {
 
                 if (!numerico) {
                     if (!table.contains(symbol)) {
-                        table.addEntry(symbol, label_number);
+                        table.addEntry(symbol.replace("$", ""), label_number);
                         label_number++;
                     }
                 }

@@ -50,42 +50,44 @@ public class Parser {
      * @return Verdadeiro se ainda há instruções, Falso se as instruções terminaram.
      */
     public Boolean advance() throws IOException {
-        Boolean next_line;
-        try {
+        currentLine = fileReader.readLine();
+
+        while (currentLine != null){
+            boolean valido = true;
+
+            currentLine = currentLine.trim();
+
+            if(currentLine.isEmpty()) valido= false;
+
+            /*if(currentLine.contains(":")) {
+                currentLine = "";
+                valido = false;
+            }*/
+
+            if(valido != false){
+                if(currentLine.contains(";")){
+                    String[] parts = currentLine.split(";");
+
+                    if(parts.length == 0) {
+                        valido = false;
+
+                    }else if(parts[0].isEmpty()){
+                        valido = false;
+                    }else{
+                        this.currentCommand = parts[0].trim();
+                        return true;
+                    }
+
+                }else {
+                    this.currentCommand = currentLine;
+                    return true;
+                }
+
+            }
+
             currentLine = fileReader.readLine();
-
-            if (currentLine != null) {
-                next_line = true;
-            }
-
-            else {
-                next_line = false;
-            }
-
-            while (next_line) {
-
-                if (currentLine.length() == 0 || currentLine.charAt(0) == ';') {
-                    currentLine = fileReader.readLine();
-
-                    if (currentLine != null) {
-                        next_line = true;
-                    }
-
-                    else {
-                        next_line = false;
-                        return next_line;
-                    }
-                }
-
-                else {
-                    return next_line;
-                }
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-            return null;
         }
-        return next_line;
+        return false;
     }
     /**
      * Retorna o comando "intrução" atual (sem o avanço)
