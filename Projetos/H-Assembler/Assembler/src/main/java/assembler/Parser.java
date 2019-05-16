@@ -5,6 +5,8 @@
 
 package assembler;
 
+import com.sun.deploy.util.StringUtils;
+
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -47,17 +49,50 @@ public class Parser {
      * entrada o método retorna "Falso", senão retorna "Verdadeiro".
      * @return Verdadeiro se ainda há instruções, Falso se as instruções terminaram.
      */
-    public Boolean advance() {
-        // usar o fileReader.readLine();
-    	return null;
+    public Boolean advance() throws IOException {
+        currentLine = fileReader.readLine();
+
+        while (currentLine != null){
+            boolean valido = true;
+
+            currentLine = currentLine.trim();
+
+            if(currentLine.isEmpty()) valido= false;
+
+            if(currentLine.contains(":")) {
+                currentLine = "";
+                valido = false;
+            }
+
+            if(valido != false){
+                if(currentLine.contains(";")){
+                    String[] parts = currentLine.split(";");
+
+                    if(parts[0].isEmpty()){
+                        valido = false;
+                    }else{
+                        this.currentCommand = parts[0].trim();
+                        return true;
+                    }
+
+                }else {
+                    this.currentCommand = currentLine;
+                    return true;
+                }
+
+            }
+
+            currentLine = fileReader.readLine();
+        }
+        return false;
     }
 
     /**
      * Retorna o comando "intrução" atual (sem o avanço)
      * @return a instrução atual para ser analilisada
      */
-    public String command() {
-    	return null;
+    public String command(){
+    	return this.currentCommand;
     }
 
     /**
@@ -70,11 +105,13 @@ public class Parser {
      */
     public CommandType commandType(String command) {
 
-        if (command.contains(":")){
+        if(command.contains(":")){
             return CommandType.L_COMMAND;
-        } else if (command.contains("lea")){
+        }
+        else if (command.contains("leaw")){
             return CommandType.A_COMMAND;
-        } else {
+        }
+        else{
             return CommandType.C_COMMAND;
         }
     }
@@ -86,7 +123,12 @@ public class Parser {
      * @return somente o símbolo ou o valor número da instrução.
      */
     public String symbol(String command) {
-    	return null;
+        if (commandType(command) == CommandType.A_COMMAND){
+            String[] part1 = command.split("[ ,]");
+            return part1[1].replace("$","");
+        }else {
+            return null;
+        }
     }
 
     /**
@@ -96,7 +138,12 @@ public class Parser {
      * @return o símbolo da instrução (sem os dois pontos).
      */
     public String label(String command) {
-    	return null;
+        if (commandType(command) == CommandType.L_COMMAND){
+            return command.substring(0, command.indexOf(":"));
+
+        }else {
+            return null;
+        }
     }
 
     /**
@@ -106,7 +153,13 @@ public class Parser {
      * @return um vetor de string contento os tokens da instrução (as partes do comando).
      */
     public String[] instruction(String command) {
-    	return null;
+        if(commandType(command)==CommandType.C_COMMAND){
+            String[] part1 = command.split("[, ]");
+            return part1;
+        }
+        else{
+            return null;
+        }
     }
 
     // fecha o arquivo de leitura
