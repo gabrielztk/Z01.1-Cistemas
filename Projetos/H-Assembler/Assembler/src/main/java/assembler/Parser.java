@@ -156,7 +156,8 @@ public class Parser {
      */
     public String[] instruction(String command) {
         if(commandType(command)==CommandType.C_COMMAND){
-            String[] part1 = command.split("[, ]");
+            String[] part1 = command.replace(", "," ").replace(",", " ").split(" ");
+
             return part1;
         }
         else{
