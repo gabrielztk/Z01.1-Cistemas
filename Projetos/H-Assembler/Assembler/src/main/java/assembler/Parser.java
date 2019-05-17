@@ -59,16 +59,19 @@ public class Parser {
 
             if(currentLine.isEmpty()) valido= false;
 
-            if(currentLine.contains(":")) {
+            /*if(currentLine.contains(":")) {
                 currentLine = "";
                 valido = false;
-            }
+            }*/
 
             if(valido != false){
                 if(currentLine.contains(";")){
                     String[] parts = currentLine.split(";");
 
-                    if(parts[0].isEmpty()){
+                    if(parts.length == 0) {
+                        valido = false;
+
+                    }else if(parts[0].isEmpty()){
                         valido = false;
                     }else{
                         this.currentCommand = parts[0].trim();
@@ -86,7 +89,6 @@ public class Parser {
         }
         return false;
     }
-
     /**
      * Retorna o comando "intrução" atual (sem o avanço)
      * @return a instrução atual para ser analilisada
@@ -154,7 +156,8 @@ public class Parser {
      */
     public String[] instruction(String command) {
         if(commandType(command)==CommandType.C_COMMAND){
-            String[] part1 = command.split("[, ]");
+            String[] part1 = command.replace(", "," ").replace(",", " ").split(" ");
+
             return part1;
         }
         else{
