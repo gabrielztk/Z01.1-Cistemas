@@ -5,7 +5,6 @@
 
 package assembler;
 
-import com.sun.deploy.util.StringUtils;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -155,14 +154,11 @@ public class Parser {
      * @return um vetor de string contento os tokens da instrução (as partes do comando).
      */
     public String[] instruction(String command) {
-        if(commandType(command)==CommandType.C_COMMAND){
-            String[] part1 = command.replace(", "," ").replace(",", " ").split(" ");
 
-            return part1;
-        }
-        else{
-            return null;
-        }
+        String[] part1 = command.replace(", "," ").replace(",", " ").split(" ");
+
+        return part1;
+
     }
 
     // fecha o arquivo de leitura

@@ -57,7 +57,7 @@ public class Code {
                 return "0001";
             }
 
-        }else if(mnemnonic.length == 2){
+        }else if(mnemnonic[0].equals("leaw") || mnemnonic[0].equals("notw") || mnemnonic[0].equals("negw") || mnemnonic[0].equals("incw") || mnemnonic[0].equals("decw")){
             if(mnemnonic[1].equals("%A")){
                 return "1000";
             }else if(mnemnonic[1].equals("%S")){
@@ -79,8 +79,9 @@ public class Code {
      * @return Opcode (String de 7 bits) com código em linguagem de máquina para a instrução.
      */
     public static String comp(String[] mnemnonic) {
-        System.out.println(mnemnonic[0]);
         String[] teste = new String[2];
+        teste[0] = "";
+        teste[1] = "";
         if(mnemnonic.length > 1){
             teste[0] = mnemnonic[1];
         }
@@ -89,11 +90,24 @@ public class Code {
         }
 
         if (mnemnonic[0].equals("jg") || mnemnonic[0].equals("je") || mnemnonic[0].equals("jge") || mnemnonic[0].equals("jl") || mnemnonic[0].equals("jne") || mnemnonic[0].equals("jle") || mnemnonic[0].equals("jmp")) {
-            if (mnemnonic[1].equals("%D")) {
+            String jmpTop = "001100";
+            String jmpBot = "110000";
+
+            if(mnemnonic[0].equals("jmp")) {
                 return "000001100";
-            } else {
-                return "001001100";
+            }else{
+
+                if (teste[0].equals("%A")) {
+                    return "000" + jmpBot;
+                } else if (teste[0].equals("(%A)")) {
+                    return "010" + jmpBot;
+                } else if (teste[0].equals("%D")) {
+                    return "000" + jmpTop;
+                } else {
+                    return "001" + jmpTop;
+                }
             }
+
         }
 
 
@@ -313,7 +327,7 @@ public class Code {
         }
 
 
-        return "00";
+        return "110001000";
 
     }
 
