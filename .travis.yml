@@ -54,3 +54,4 @@ script:
   - python3 Projetos/G-Computador/testeHW.py
 #  - python3 Projetos/H-Assembler/genJAR.py
 #  - python3 Projetos/H-Assembler/testeAssemblerMyCPU.py
+# - python3 Projetos/J-VMTranslator/testeVMtranslator.py
