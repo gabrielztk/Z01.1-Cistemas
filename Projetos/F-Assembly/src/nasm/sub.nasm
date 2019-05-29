@@ -6,7 +6,7 @@
 ; faz uma subtracao binaria do valor de :  RAM[1] - RAM[0] gravando em RAM[2].
 
 movw (%A), %D
-leaw %1, %A
+leaw $1, %A
 movw (%A), %S
-leaw %2, %A
+leaw $2, %A
 subw %S, %D, (%A)
