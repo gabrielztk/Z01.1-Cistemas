@@ -112,15 +112,20 @@ public class Assemble {
 
                 case C_COMMAND:
                     bitc = "10";
-                    dest = Code.dest(command);
-                    comp = Code.comp(command);
-                    jump = Code.jump(command);
-                    instruction = bitc + comp + dest + jump;
+                    if(command[0].equals("nop")){
+                        instruction = "100000000000000000";
+                    }else {
+                        dest = Code.dest(command);
+                        comp = Code.comp(command);
+                        jump = Code.jump(command);
+                        instruction = bitc + comp + dest + jump;
+                    }
                     break;
 
                 case A_COMMAND:
                     bitc = "00";
                     symbol = parser.symbol(parser.command());
+
 
                     if (table.contains(symbol)) {
                         int symbol_value = table.getAddress(symbol);

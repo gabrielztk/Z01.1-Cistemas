@@ -25,7 +25,7 @@ public class ParserTest {
      */
     public ParserTest() {
         try {
-            parser = new Parser("src/test/resources/testEmpty.nasm");
+            parser = new Parser("Assembler/src/test/resources/testEmpty.nasm");
         } catch(Exception e) {
             e.printStackTrace();
         }
@@ -117,7 +117,7 @@ public class ParserTest {
     	
     	try {
     		Parser parser_testEmpty = new Parser("Assembler/src/test/resources/testEmpty.nasm");
-    		org.junit.Assume.assumeNotNull( parser_testEmpty.advance() );		// ignora test
+    	//	org.junit.Assume.assumeNotNull( parser_testEmpty.advance() );		// ignora test
         } catch(Exception e) { 
         	org.junit.Assume.assumeNoException(e);
         }
