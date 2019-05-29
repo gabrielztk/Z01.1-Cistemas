@@ -160,6 +160,7 @@ public class CodeTest  {
             assertTrue("negw %D",Code.comp(new String[] {"negw","%D"}).equals("000001111"));
             assertTrue("andw (%A) %D %D",Code.comp(new String[] {"andw","(%A)","%D","%D"}).equals("010000000"));
             assertTrue("andw %D %A %A",Code.comp(new String[] {"andw","%D","%A","%A"}).equals("000000000"));
+			assertTrue("andw %S %D %A",Code.comp(new String[] {"andw","%S","%D","%A"}).equals("101000000"));
             assertTrue("orw (%A) %D %D",Code.comp(new String[] {"orw","(%A)","%D","%D"}).equals("010010101"));
             assertTrue("orw %D %A %A",Code.comp(new String[] {"orw","%D","%A","%A"}).equals("000010101"));
             assertTrue("subw (%A), $1, %A",Code.comp(new String[] {"subw","(%A)", "$1", "%A"}).equals("010110010"));
