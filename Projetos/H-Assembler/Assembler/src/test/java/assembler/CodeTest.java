@@ -110,7 +110,9 @@ public class CodeTest  {
         	assertTrue("jle",Code.dest(new String[] {"jle"}).equals("0000"));
 
 		} catch(Exception e) {
-		  	e.printStackTrace();
+			org.junit.Assert.fail();
+
+			e.printStackTrace();
 		}
     	
     }
@@ -170,6 +172,7 @@ public class CodeTest  {
             assertTrue("jl %S",Code.comp(new String[] {"jl", "%S"}).equals("001001100"));
             assertTrue("jle %S",Code.comp(new String[] {"jle", "%S"}).equals("001001100"));
 		} catch(Exception e) {
+			assertTrue("Exception","FAIL".equals("000"));
 		  	e.printStackTrace();
 		}
     	
@@ -190,7 +193,9 @@ public class CodeTest  {
         	assertTrue("jle",Code.jump(new String[] {"jle"}).equals("110"));
 			assertTrue("orw %D,%A,%A",Code.jump(new String[] {"orw","%D","%A","%A"}).equals("000"));
 		} catch(Exception e) {
-		  	e.printStackTrace();
+			assertTrue("Exception","FAIL".equals("000"));
+
+			e.printStackTrace();
 		}
     	
     }
