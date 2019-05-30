@@ -174,13 +174,13 @@ public class Code {
 
         else if (mnemnonic[0].equals("orw")){
             String or = "010101";
-            if(Arrays.stream(mnemnonic).anyMatch("%A"::equals) && Arrays.stream(mnemnonic).anyMatch("%D"::equals)){
+            if(Arrays.stream(teste).anyMatch("%A"::equals) && Arrays.stream(teste).anyMatch("%D"::equals)){
                 return "000" + or;
-            }else if(Arrays.stream(mnemnonic).anyMatch("%A"::equals) && Arrays.stream(mnemnonic).anyMatch("%S"::equals)){
+            }else if(Arrays.stream(teste).anyMatch("%A"::equals) && Arrays.stream(teste).anyMatch("%S"::equals)){
                 return "001" + or;
-            }else if(Arrays.stream(mnemnonic).anyMatch("(%A)"::equals) && Arrays.stream(mnemnonic).anyMatch("%D"::equals)){
+            }else if(Arrays.stream(teste).anyMatch("(%A)"::equals) && Arrays.stream(teste).anyMatch("%D"::equals)){
                 return "010" + or;
-            }else if(Arrays.stream(mnemnonic).anyMatch("(%A)"::equals) && Arrays.stream(mnemnonic).anyMatch("%S"::equals)){
+            }else if(Arrays.stream(teste).anyMatch("(%A)"::equals) && Arrays.stream(teste).anyMatch("%S"::equals)){
                 return "011" + or;
             }else{
                 return "101" + or;
@@ -188,13 +188,13 @@ public class Code {
         }
         else if (mnemnonic[0].equals("andw")){
             String and = "000000";
-            if(Arrays.stream(mnemnonic).anyMatch("%A"::equals) && Arrays.stream(mnemnonic).anyMatch("%D"::equals)){
+            if(Arrays.stream(teste).anyMatch("%A"::equals) && Arrays.stream(teste).anyMatch("%D"::equals)){
                 return "000" + and;
-            }else if(Arrays.stream(mnemnonic).anyMatch("%A"::equals) && Arrays.stream(mnemnonic).anyMatch("%S"::equals)){
+            }else if(Arrays.stream(teste).anyMatch("%A"::equals) && Arrays.stream(teste).anyMatch("%S"::equals)){
                 return "001" + and;
-            }else if(Arrays.stream(mnemnonic).anyMatch("(%A)"::equals) && Arrays.stream(mnemnonic).anyMatch("%D"::equals)){
+            }else if(Arrays.stream(teste).anyMatch("(%A)"::equals) && Arrays.stream(teste).anyMatch("%D"::equals)){
                 return "010" + and;
-            }else if(Arrays.stream(mnemnonic).anyMatch("(%A)"::equals) && Arrays.stream(mnemnonic).anyMatch("%S"::equals)){
+            }else if(Arrays.stream(teste).anyMatch("(%A)"::equals) && Arrays.stream(teste).anyMatch("%S"::equals)){
                 return "011" + and;
             }else{
                 return "101" + and;

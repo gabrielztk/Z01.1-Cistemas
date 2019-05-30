@@ -113,7 +113,7 @@ public class Assemble {
                 case C_COMMAND:
                     bitc = "10";
                     if(command[0].equals("nop")){
-                        instruction = "100000000000000000";
+                        instruction = "100001010100000000";
                     }else {
                         dest = Code.dest(command);
                         comp = Code.comp(command);

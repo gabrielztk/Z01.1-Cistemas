@@ -13,8 +13,8 @@ import static org.junit.Assert.assertTrue;
 public class AssembleTest {
 
     Assemble assembler = null;
-    private String inFile  = "Assembler/src/test/resources/isEven.nasm";
-    private String outFile = "Assembler/src/test/resources/isEven.hack";
+    private String inFile  = "src/test/resources/isEven.nasm";
+    private String outFile = "src/test/resources/isEven.hack";
 
     public AssembleTest() {
         try {

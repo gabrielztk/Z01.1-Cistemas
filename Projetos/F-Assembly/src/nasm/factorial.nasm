@@ -39,7 +39,7 @@ loop2:
 
 	leaw $1, %A
 	movw %D, (%A)
-	leaw %2, %A
+	leaw $2, %A
 	movw (%A), %S
 	decw %S
 	movw %S, (%A)
