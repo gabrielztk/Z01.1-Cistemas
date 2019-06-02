@@ -46,26 +46,263 @@ public class Code {
         if(command.equals("add")) {
             commands.add(String.format("; %d - ADD", lineCode++));
 
+            //Busca no StackPointer o endereco da posicao vazia da stack
+            commands.add("leaw $SP,%A");
+            commands.add("movw (%A),%A");
+
+            //Carrega o ultimo valor da stack no reg. D
+            commands.add("decw %A");
+            commands.add("movw (%A),%D");
+
+            //Carrega o penultimo valor da stack no reg. S
+            commands.add("decw %A");
+            commands.add("movw (%A),%S");
+
+            //ADD em carrega no endereco do penultimo valor da stack
+            commands.add("addw %D,%S,(%A)");
+
+            //Decrementa SP em um
+            commands.add("leaw $SP,%A");
+            commands.add("movw (%A),%D");
+            commands.add("decw %D");
+            commands.add("movw %D,(%A)");
+
+
         } else if (command.equals("sub")) {
             commands.add(String.format("; %d - SUB", lineCode++));
+
+            //Busca no StackPointer o endereco da posicao vazia da stack
+            commands.add("leaw $SP,%A");
+            commands.add("movw (%A),%A");
+
+            //Carrega o ultimo valor da stack no reg. D
+            commands.add("decw %A");
+            commands.add("movw (%A),%D");
+
+            //Carrega o penultimo valor da stack no reg. S
+            commands.add("decw %A");
+            commands.add("movw (%A),%S");
+
+            //SUB em carrega no endereco do penultimo valor da stack
+            commands.add("subw %S,%D,(%A)");
+
+            //Decrementa SP em um
+            commands.add("leaw $SP,%A");
+            commands.add("movw (%A),%D");
+            commands.add("decw %D");
+            commands.add("movw %D,(%A)");
+
 
         } else if (command.equals("neg")) {
             commands.add(String.format("; %d - NEG", lineCode++));
 
+            //Busca no StackPointer o endereco da posicao vazia da stack
+            commands.add("leaw $SP,%A");
+            commands.add("movw (%A),%A");
+
+            //Carrega o ultimo valor da stack no reg. D
+            commands.add("decw %A");
+            commands.add("movw (%A),%D");
+
+            //NEG em carrega no endereco do penultimo valor da stack
+            commands.add("negw %D");
+            commands.add("movw %D,(%A)");
+
         } else if (command.equals("eq")) {
             commands.add(String.format("; %d - EQ", lineCode++));
+
+            //Busca no StackPointer o endereco da posicao vazia da stack
+            commands.add("leaw $SP,%A");
+            commands.add("movw (%A),%A");
+
+            //Carrega o ultimo valor da stack no reg. D
+            commands.add("decw %A");
+            commands.add("movw (%A),%D");
+
+            //Carrega o penultimo valor da stack no reg. S
+            commands.add("decw %A");
+            commands.add("movw (%A),%S");
+
+            //SUB em carrega no endereco do penultimo valor da stack
+            commands.add("subw %S,%D,%D");
+
+            //Verifica se a subtracao dos valores deu 0
+            commands.add("leaw $SIM,%A");
+            commands.add("je %D");
+            commands.add("nop");
+
+            //Se nao carrega false
+            commands.add("leaw $0,%A");
+            commands.add("movw %A,%D");
+            commands.add("leaw $SP,%A");
+            commands.add("movw (%A),%A");
+            commands.add("decw %A");
+            commands.add("decw %A");
+            commands.add("movw %D,(%A)");
+
+            //Se sim carrega true
+            commands.add("SIM:");
+            commands.add("leaw $-1,%A");
+            commands.add("movw %A,%D");
+            commands.add("leaw $SP,%A");
+            commands.add("movw (%A),%A");
+            commands.add("decw %A");
+            commands.add("decw %A");
+            commands.add("movw %D,(%A)");
+
+            //Decrementa SP em um
+            commands.add("leaw $SP,%A");
+            commands.add("movw (%A),%D");
+            commands.add("decw %D");
+            commands.add("movw %D,(%A)");
+
 
         } else if (command.equals("gt")) {
             commands.add(String.format("; %d - GT", lineCode++));
 
+            //Busca no StackPointer o endereco da posicao vazia da stack
+            commands.add("leaw $SP,%A");
+            commands.add("movw (%A),%A");
+
+            //Carrega o ultimo valor da stack no reg. D
+            commands.add("decw %A");
+            commands.add("movw (%A),%D");
+
+            //Carrega o penultimo valor da stack no reg. S
+            commands.add("decw %A");
+            commands.add("movw (%A),%S");
+
+            //SUB em carrega no endereco do penultimo valor da stack
+            commands.add("subw %S,%D,%D");
+
+            //Verifica se a subtracao dos valores deu 0
+            commands.add("leaw $SIM,%A");
+            commands.add("jg %D");
+            commands.add("nop");
+
+            //Se nao carrega false
+            commands.add("leaw $0,%A");
+            commands.add("movw %A,%D");
+            commands.add("leaw $SP,%A");
+            commands.add("movw (%A),%A");
+            commands.add("decw %A");
+            commands.add("decw %A");
+            commands.add("movw %D,(%A)");
+
+            //Se sim carrega true
+            commands.add("SIM:");
+            commands.add("leaw $-1,%A");
+            commands.add("movw %A,%D");
+            commands.add("leaw $SP,%A");
+            commands.add("movw (%A),%A");
+            commands.add("decw %A");
+            commands.add("decw %A");
+            commands.add("movw %D,(%A)");
+
+            //Decrementa SP em um
+            commands.add("leaw $SP,%A");
+            commands.add("movw (%A),%D");
+            commands.add("decw %D");
+            commands.add("movw %D,(%A)");
+
         } else if (command.equals("lt")) {
             commands.add(String.format("; %d - LT", lineCode++));
+
+
+            //Busca no StackPointer o endereco da posicao vazia da stack
+            commands.add("leaw $SP,%A");
+            commands.add("movw (%A),%A");
+
+            //Carrega o ultimo valor da stack no reg. D
+            commands.add("decw %A");
+            commands.add("movw (%A),%D");
+
+            //Carrega o penultimo valor da stack no reg. S
+            commands.add("decw %A");
+            commands.add("movw (%A),%S");
+
+            //SUB em carrega no endereco do penultimo valor da stack
+            commands.add("subw %S,%D,%D");
+
+            //Verifica se a subtracao dos valores deu 0
+            commands.add("leaw $SIM,%A");
+            commands.add("jl %D");
+            commands.add("nop");
+
+            //Se nao carrega false
+            commands.add("leaw $0,%A");
+            commands.add("movw %A,%D");
+            commands.add("leaw $SP,%A");
+            commands.add("movw (%A),%A");
+            commands.add("decw %A");
+            commands.add("decw %A");
+            commands.add("movw %D,(%A)");
+
+            //Se sim carrega true
+            commands.add("SIM:");
+            commands.add("leaw $-1,%A");
+            commands.add("movw %A,%D");
+            commands.add("leaw $SP,%A");
+            commands.add("movw (%A),%A");
+            commands.add("decw %A");
+            commands.add("decw %A");
+            commands.add("movw %D,(%A)");
+
+            //Decrementa SP em um
+            commands.add("leaw $SP,%A");
+            commands.add("movw (%A),%D");
+            commands.add("decw %D");
+            commands.add("movw %D,(%A)");
 
         } else if (command.equals("and")) {
             commands.add(String.format("; %d - AND", lineCode++));
 
+            //Busca no StackPointer o endereco da posicao vazia da stack
+            commands.add("leaw $SP,%A");
+            commands.add("movw (%A),%A");
+
+            //Carrega o ultimo valor da stack no reg. D
+            commands.add("decw %A");
+            commands.add("movw (%A),%D");
+
+            //Carrega o penultimo valor da stack no reg. S
+            commands.add("decw %A");
+            commands.add("movw (%A),%S");
+
+            //AND em carrega no endereco do penultimo valor da stack
+            commands.add("andw %D,%S,(%A)");
+
+            //Decrementa SP em um
+            commands.add("leaw $SP,%A");
+            commands.add("movw (%A),%D");
+            commands.add("decw %D");
+            commands.add("movw %D,(%A)");
+
+
         } else if (command.equals("or")) {
             commands.add(String.format("; %d - OR", lineCode++));
+
+            //Busca no StackPointer o endereco da posicao vazia da stack
+            commands.add("leaw $SP,%A");
+            commands.add("movw (%A),%A");
+
+            //Carrega o ultimo valor da stack no reg. D
+            commands.add("decw %A");
+            commands.add("movw (%A),%D");
+
+            //Carrega o penultimo valor da stack no reg. S
+            commands.add("decw %A");
+            commands.add("movw (%A),%S");
+
+            //OR em carrega no endereco do penultimo valor da stack
+            commands.add("orw %D,%S,(%A)");
+
+            //Decrementa SP em um
+            commands.add("leaw $SP,%A");
+            commands.add("movw (%A),%D");
+            commands.add("decw %D");
+            commands.add("movw %D,(%A)");
+
 
         } else if (command.equals("not")) {
             commands.add(String.format("; %d - NOT", lineCode++));
@@ -99,45 +336,408 @@ public class Code {
                 Error.error("Não faz sentido POP com constant");
             } else if (segment.equals("local")) {
 
+                //Busca no StackPointer o endereco da posicao vazia da stack
+                commands.add("leaw $SP,%A");
+                commands.add("movw (%A),%A");
+
+                //Carrega o ultimo valor da stack no reg. D
+                commands.add("decw %A");
+                commands.add("movw (%A),%D");
+
+                //Pega o endereço que o local aponta e carrega no reg. A
+                commands.add("leaw $LCL,%A");
+                commands.add("movw (%A),%A");
+
+                while (index != 0){
+                    //Inclementa o valor do reg. A ate onde o index quer
+                    commands.add("incw %A");
+                    index--;
+                }
+
+                //Carrega o ultimo valor da stack pro endereco que o local aponta
+                commands.add("movw %D, (%A)");
+
+                //Decrementa SP em um
+                commands.add("leaw $SP,%A");
+                commands.add("movw (%A),%D");
+                commands.add("decw %D");
+                commands.add("movw %D,(%A)");
+
+
             } else if (segment.equals("argument")) {
+
+                //Busca no StackPointer o endereco da posicao vazia da stack
+                commands.add("leaw $SP,%A");
+                commands.add("movw (%A),%A");
+
+                //Carrega o ultimo valor da stack no reg. D
+                commands.add("decw %A");
+                commands.add("movw (%A),%D");
+
+                //Pega o endereço que o argument aponta e carrega no reg. A
+                commands.add("leaw $ARG,%A");
+                commands.add("movw (%A),%A");
+
+                while (index != 0){
+                    //Inclementa o valor do reg. A ate onde o index quer
+                    commands.add("incw %A");
+                    index--;
+                }
+
+                //Carrega o ultimo valor da stack pro endereco que o argument aponta
+                commands.add("movw %D, (%A)");
+
+                //Decrementa SP em um
+                commands.add("leaw $SP,%A");
+                commands.add("movw (%A),%D");
+                commands.add("decw %D");
+                commands.add("movw %D,(%A)");
 
             } else if (segment.equals("this")) {
 
+                //Busca no StackPointer o endereco da posicao vazia da stack
+                commands.add("leaw $SP,%A");
+                commands.add("movw (%A),%A");
+
+                //Carrega o ultimo valor da stack no reg. D
+                commands.add("decw %A");
+                commands.add("movw (%A),%D");
+
+                //Pega o endereço que o this aponta e carrega no reg. A
+                commands.add("leaw $THIS,%A");
+                commands.add("movw (%A),%A");
+
+                while (index != 0){
+
+                    //Inclementa o valor do reg. A ate onde o index quer
+                    commands.add("incw %A");
+                    index--;
+                }
+
+                //Carrega o ultimo valor da stack pro endereco que o this aponta
+                commands.add("movw %D, (%A)");
+
+                //Decrementa SP em um
+                commands.add("leaw $SP,%A");
+                commands.add("movw (%A),%D");
+                commands.add("decw %D");
+                commands.add("movw %D,(%A)");
+
             } else if (segment.equals("that")) {
+
+                //Busca no StackPointer o endereco da posicao vazia da stack
+                commands.add("leaw $SP,%A");
+                commands.add("movw (%A),%A");
+
+                //Carrega o ultimo valor da stack no reg. D
+                commands.add("decw %A");
+                commands.add("movw (%A),%D");
+
+                //Pega o endereço que o that aponta e carrega no reg. A
+                commands.add("leaw $THAT,%A");
+                commands.add("movw (%A),%A");
+
+                while (index != 0){
+
+                    //Inclementa o valor do reg. A ate onde o index quer
+                    commands.add("incw %A");
+                    index--;
+                }
+
+                //Carrega o ultimo valor da stack pro endereco que o that aponta
+                commands.add("movw %D, (%A)");
+
+                //Decrementa SP em um
+                commands.add("leaw $SP,%A");
+                commands.add("movw (%A),%D");
+                commands.add("decw %D");
+                commands.add("movw %D,(%A)");
 
             } else if (segment.equals("static")) {
 
             } else if (segment.equals("temp")) {
 
+                //Busca no StackPointer o endereco da posicao vazia da stack
+                commands.add("leaw $SP,%A");
+                commands.add("movw (%A),%A");
+
+                //Carrega o ultimo valor da stack no reg. D
+                commands.add("decw %A");
+                commands.add("movw (%A),%D");
+
+                //Pega o endereço que o temp aponta e carrega no reg. A
+                commands.add("leaw $R5,%A");
+
+                while (index != 0){
+
+                    //Inclementa o valor do reg. A ate onde o index quer
+                    commands.add("incw %A");
+                    index--;
+                }
+
+                //Carrega o ultimo valor da stack pro endereco que o temp aponta
+                commands.add("movw %D, (%A)");
+
+                //Decrementa SP em um
+                commands.add("leaw $SP,%A");
+                commands.add("movw (%A),%D");
+                commands.add("decw %D");
+                commands.add("movw %D,(%A)");
+
             } else if (segment.equals("pointer")) {
                 if(index==0) {
+                    //Busca no StackPointer o endereco da posicao vazia da stack
+                    commands.add("leaw $SP,%A");
+                    commands.add("movw (%A),%A");
+
+                    //Carrega o ultimo valor da stack no reg. D
+                    commands.add("decw %A");
+                    commands.add("movw (%A),%D");
+
+                    //Pega o endereço que o that aponta e carrega no reg. A
+                    commands.add("leaw $R3,%A");
+
+                    //Carrega o ultimo valor da stack pro endereco que o that aponta
+                    commands.add("movw %D, (%A)");
+
+                    //Decrementa SP em um
+                    commands.add("leaw $SP,%A");
+                    commands.add("movw (%A),%D");
+                    commands.add("decw %D");
+                    commands.add("movw %D,(%A)");
 
                 } else {
+
+                    //Busca no StackPointer o endereco da posicao vazia da stack
+                    commands.add("leaw $SP,%A");
+                    commands.add("movw (%A),%A");
+
+                    //Carrega o ultimo valor da stack no reg. D
+                    commands.add("decw %A");
+                    commands.add("movw (%A),%D");
+
+                    //Pega o endereço que o that aponta e carrega no reg. A
+                    commands.add("leaw $R4,%A");
+
+                    //Carrega o ultimo valor da stack pro endereco que o that aponta
+                    commands.add("movw %D, (%A)");
+
+                    //Decrementa SP em um
+                    commands.add("leaw $SP,%A");
+                    commands.add("movw (%A),%D");
+                    commands.add("decw %D");
+                    commands.add("movw %D,(%A)");
 
                 }
             }
         } else if (command == Parser.CommandType.C_PUSH) {
             commands.add(String.format("; %d - PUSH %s %d", lineCode++ ,segment, index));
 
+            String A = "%A";
+
             if (segment.equals("constant")) {
-               
+
+                //Carrega o valor da constante em um registrador disponível
+                commands.add(String.format("leaw $%d,%s", index, A));
+                commands.add("movw %A,%D");
+
+                //Busca no StackPointer o endereco da posicao vazia da stack
+                commands.add("leaw $SP,%A");
+                commands.add("movw (%A),%A");
+
+                //Move o valor do Index para essa posição vazia
+                commands.add("movw %D,(%A)");
+
+                //Incrementa SP em um
+                commands.add("leaw $SP,%A");
+                commands.add("movw (%A),%D");
+                commands.add("incw %D");
+                commands.add("movw %D,(%A)");
+
             } else if (segment.equals("local")) {
+
+                //Pega o endereço que o local aponta e carrega no reg. A
+                commands.add("leaw $LCL,%A");
+                commands.add("movw (%A),%A");
+
+                while (index != 0){
+                    //Inclementa o valor do reg. A ate onde o index quer
+                    commands.add("incw %A");
+                    index--;
+                }
+
+                //Carrega o valor que o local aponta em um reg. D
+                commands.add("movw (%A),%D");
+
+                //Busca no StackPointer o endereco da posicao vazia da stack
+                commands.add("leaw $SP,%A");
+                commands.add("movw (%A),%A");
+
+                //Move o valor da posicao que o local aponta para essa posição vazia
+                commands.add("movw %D,(%A)");
+
+                //Incrementa SP em um
+                commands.add("leaw $SP,%A");
+                commands.add("movw (%A),%D");
+                commands.add("incw %D");
+                commands.add("movw %D,(%A)");
 
             } else if (segment.equals("argument")) {
 
+                //Pega o endereço que o argument aponta e carrega no reg. A
+                commands.add("leaw $ARG,%A");
+                commands.add("movw (%A),%A");
+
+                while (index != 0){
+                    //Inclementa o valor do reg. A ate onde o index quer
+                    commands.add("incw %A");
+                    index--;
+                }
+
+                //Carrega o valor que o argument aponta em um reg. D
+                commands.add("movw (%A),%D");
+
+                //Busca no StackPointer o endereco da posicao vazia da stack
+                commands.add("leaw $SP,%A");
+                commands.add("movw (%A),%A");
+
+                //Move o valor da posicao que o argument aponta para essa posição vazia
+                commands.add("movw %D,(%A)");
+
+                //Incrementa SP em um
+                commands.add("leaw $SP,%A");
+                commands.add("movw (%A),%D");
+                commands.add("incw %D");
+                commands.add("movw %D,(%A)");
+
             } else if (segment.equals("this")) {
+
+                //Pega o endereço que o this aponta e carrega no reg. A
+                commands.add("leaw $THIS,%A");
+                commands.add("movw (%A),%A");
+
+                while (index != 0){
+                    //Inclementa o valor do reg. A ate onde o index quer
+                    commands.add("incw %A");
+                    index--;
+                }
+
+                //Carrega o valor que o this aponta em um reg. D
+                commands.add("movw (%A),%D");
+
+                //Busca no StackPointer o endereco da posicao vazia da stack
+                commands.add("leaw $SP,%A");
+                commands.add("movw (%A),%A");
+
+                //Move o valor da posicao que o this aponta para essa posição vazia
+                commands.add("movw %D,(%A)");
+
+                //Incrementa SP em um
+                commands.add("leaw $SP,%A");
+                commands.add("movw (%A),%D");
+                commands.add("incw %D");
+                commands.add("movw %D,(%A)");
 
             } else if (segment.equals("that")) {
 
+                //Pega o endereço que o that aponta e carrega no reg. A
+                commands.add("leaw $THAT,%A");
+                commands.add("movw (%A),%A");
+
+                while (index != 0){
+                    //Inclementa o valor do reg. A ate onde o index quer
+                    commands.add("incw %A");
+                    index--;
+                }
+
+                //Carrega o valor que o that aponta em um reg. D
+                commands.add("movw (%A),%D");
+
+                //Busca no StackPointer o endereco da posicao vazia da stack
+                commands.add("leaw $SP,%A");
+                commands.add("movw (%A),%A");
+
+                //Move o valor da posicao que o that aponta para essa posição vazia
+                commands.add("movw %D,(%A)");
+
+                //Incrementa SP em um
+                commands.add("leaw $SP,%A");
+                commands.add("movw (%A),%D");
+                commands.add("incw %D");
+                commands.add("movw %D,(%A)");
+
             } else if (segment.equals("static")) {
 
+
             } else if (segment.equals("temp")) {
+
+                //Pega o endereço que o temp aponta e carrega no reg. A
+                commands.add("leaw $R5,%A");
+
+                while (index != 0){
+                    //Inclementa o valor do reg. A ate onde o index quer
+                    commands.add("incw %A");
+                    index--;
+                }
+
+                //Carrega o valor que o temp aponta em um reg. D
+                commands.add("movw (%A),%D");
+
+                //Busca no StackPointer o endereco da posicao vazia da stack
+                commands.add("leaw $SP,%A");
+                commands.add("movw (%A),%A");
+
+                //Move o valor da posicao que o temp aponta para essa posição vazia
+                commands.add("movw %D,(%A)");
+
+                //Incrementa SP em um
+                commands.add("leaw $SP,%A");
+                commands.add("movw (%A),%D");
+                commands.add("incw %D");
+                commands.add("movw %D,(%A)");
 
             } else if (segment.equals("pointer")) {
                 if(index==0) {
 
+                    //Pega o endereço que o pointer aponta e carrega no reg. A
+                    commands.add("leaw $R3,%A");
+
+                    //Carrega o valor que o pointer aponta em um reg. D
+                    commands.add("movw (%A),%D");
+
+                    //Busca no StackPointer o endereco da posicao vazia da stack
+                    commands.add("leaw $SP,%A");
+                    commands.add("movw (%A),%A");
+
+                    //Move o valor da posicao que o local aponta para essa posição vazia
+                    commands.add("movw %D,(%A)");
+
+                    //Incrementa SP em um
+                    commands.add("leaw $SP,%A");
+                    commands.add("movw (%A),%D");
+                    commands.add("incw %D");
+                    commands.add("movw %D,(%A)");
+
                 } else {
 
+                    //Pega o endereço que o pointer aponta e carrega no reg. A
+                    commands.add("leaw $R4,%A");
+
+                    //Carrega o valor que o pointer aponta em um reg. D
+                    commands.add("movw (%A),%D");
+
+                    //Busca no StackPointer o endereco da posicao vazia da stack
+                    commands.add("leaw $SP,%A");
+                    commands.add("movw (%A),%A");
+
+                    //Move o valor da posicao que o local aponta para essa posição vazia
+                    commands.add("movw %D,(%A)");
+
+                    //Incrementa SP em um
+                    commands.add("leaw $SP,%A");
+                    commands.add("movw (%A),%D");
+                    commands.add("incw %D");
+                    commands.add("movw %D,(%A)");
                 }
             }
         }
