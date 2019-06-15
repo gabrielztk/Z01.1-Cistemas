@@ -16,14 +16,18 @@ movw (%A),%A
 decw %A
 decw %A
 movw %D,(%A)
+leaw $END,%A
+jmp
+nop
 SIM:
-leaw $-1,%A
+leaw $65535,%A
 movw %A,%D
 leaw $SP,%A
 movw (%A),%A
 decw %A
 decw %A
 movw %D,(%A)
+END:
 leaw $SP,%A
 movw (%A),%D
 decw %D

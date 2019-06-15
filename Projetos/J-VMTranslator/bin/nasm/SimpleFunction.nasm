@@ -22,6 +22,12 @@ leaw $SP,%A
 movw (%A),%D
 incw %D
 movw %D,(%A)
+; Label (marcador)
+LOOP:
+; 4 - Goto Incondicional
+leaw $LOOP,%A
+jmp
+nop
 ; 6 - PUSH argument 0
 leaw $ARG,%A
 movw (%A),%A
