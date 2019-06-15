@@ -34,4 +34,10 @@ leaw $SP,%A
 movw (%A),%D
 decw %D
 movw %D,(%A)
+; Label (marcador)
+WHILE:
+; 5 - Goto Incondicional
+leaw $WHILE,%A
+jmp
+nop
 ; End

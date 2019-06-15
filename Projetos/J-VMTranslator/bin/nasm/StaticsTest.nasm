@@ -113,6 +113,12 @@ leaw $SP,%A
 movw (%A),%D
 decw %D
 movw %D,(%A)
+; Label (marcador)
+WHILE:
+; 23 - Goto Incondicional
+leaw $WHILE,%A
+jmp
+nop
 ; 25 - PUSH argument 0
 leaw $ARG,%A
 movw (%A),%A

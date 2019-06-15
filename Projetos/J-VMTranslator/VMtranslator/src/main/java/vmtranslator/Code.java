@@ -139,10 +139,13 @@ public class Code {
             commands.add("decw %A");
             commands.add("decw %A");
             commands.add("movw %D,(%A)");
+            commands.add("leaw $END, %A");
+            commands.add("jmp");
+            commands.add("nop");
 
             //Se sim carrega true
             commands.add("SIM:");
-            commands.add("leaw $-1,%A");
+            commands.add("leaw $65535,%A");
             commands.add("movw %A,%D");
             commands.add("leaw $SP,%A");
             commands.add("movw (%A),%A");
@@ -150,7 +153,8 @@ public class Code {
             commands.add("decw %A");
             commands.add("movw %D,(%A)");
 
-            //Decrementa SP em um
+            //Decrementa SP em umStack
+            commands.add("END:");
             commands.add("leaw $SP,%A");
             commands.add("movw (%A),%D");
             commands.add("decw %D");
@@ -188,10 +192,13 @@ public class Code {
             commands.add("decw %A");
             commands.add("decw %A");
             commands.add("movw %D,(%A)");
+            commands.add("leaw $END,%A");
+            commands.add("jmp");
+            commands.add("nop");
 
             //Se sim carrega true
             commands.add("SIM:");
-            commands.add("leaw $-1,%A");
+            commands.add("leaw $65535,%A");
             commands.add("movw %A,%D");
             commands.add("leaw $SP,%A");
             commands.add("movw (%A),%A");
@@ -200,6 +207,7 @@ public class Code {
             commands.add("movw %D,(%A)");
 
             //Decrementa SP em um
+            commands.add("END:");
             commands.add("leaw $SP,%A");
             commands.add("movw (%A),%D");
             commands.add("decw %D");
@@ -237,10 +245,13 @@ public class Code {
             commands.add("decw %A");
             commands.add("decw %A");
             commands.add("movw %D,(%A)");
+            commands.add("leaw $END,%A");
+            commands.add("jmp");
+            commands.add("nop");
 
             //Se sim carrega true
             commands.add("SIM:");
-            commands.add("leaw $-1,%A");
+            commands.add("leaw $65535,%A");
             commands.add("movw %A,%D");
             commands.add("leaw $SP,%A");
             commands.add("movw (%A),%A");
@@ -249,6 +260,7 @@ public class Code {
             commands.add("movw %D,(%A)");
 
             //Decrementa SP em um
+            commands.add("END:");
             commands.add("leaw $SP,%A");
             commands.add("movw (%A),%D");
             commands.add("decw %D");
@@ -533,12 +545,10 @@ public class Code {
         } else if (command == Parser.CommandType.C_PUSH) {
             commands.add(String.format("; %d - PUSH %s %d", lineCode++ ,segment, index));
 
-            String A = "%A";
-
             if (segment.equals("constant")) {
 
                 //Carrega o valor da constante em um registrador disponível
-                commands.add(String.format("leaw $%d,%s", index, A));
+                commands.add(String.format("leaw $%d,%s", index, "%A"));
                 commands.add("movw %A,%D");
 
                 //Busca no StackPointer o endereco da posicao vazia da stack
@@ -789,6 +799,12 @@ public class Code {
         List<String> commands = new ArrayList<String>();
         commands.add( "; Label (marcador)" );
 
+        commands.add(String.format("%s:", label.toUpperCase()));
+
+        String[] stringArray = new String[ commands.size() ];
+        commands.toArray( stringArray );
+        write(stringArray);
+
     }
 
     /**
@@ -800,6 +816,14 @@ public class Code {
 
         List<String> commands = new ArrayList<String>();
         commands.add(String.format("; %d - Goto Incondicional", lineCode++));
+
+        commands.add(String.format("leaw $%s,%s", label.toUpperCase(), "%A"));
+        commands.add("jmp");
+        commands.add("nop");
+
+        String[] stringArray = new String[ commands.size() ];
+        commands.toArray( stringArray );
+        write(stringArray);
 
     }
 
@@ -813,6 +837,26 @@ public class Code {
         List<String> commands = new ArrayList<String>();
         commands.add(String.format("; %d - Goto Condicional", lineCode++));
 
+        commands.add("leaw $SP,%A");
+        commands.add("movw (%A),%A");
+        commands.add("decw %A");
+        commands.add("movw (%A),%D");
+
+        commands.add("leaw $65535,%A");
+        commands.add("subw %A,%D,%D");
+
+        commands.add("leaw $SP,%A");
+        commands.add("movw (%A),%S");
+        commands.add("decw %S");
+        commands.add("movw %S,(%A)");
+
+        commands.add(String.format("leaw $%s,%s", label.toUpperCase(), "%A"));
+        commands.add("je %D");
+        commands.add("nop");
+
+        String[] stringArray = new String[ commands.size() ];
+        commands.toArray( stringArray );
+        write(stringArray);
      }
 
     /**

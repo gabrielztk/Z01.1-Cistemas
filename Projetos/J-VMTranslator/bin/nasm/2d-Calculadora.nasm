@@ -49,6 +49,8 @@ leaw $SP,%A
 movw (%A),%D
 decw %D
 movw %D,(%A)
+; Label (marcador)
+LOOP:
 ; 5 - PUSH constant 0
 leaw $0,%A
 movw %A,%D
@@ -89,18 +91,36 @@ movw (%A),%A
 decw %A
 decw %A
 movw %D,(%A)
+leaw $END, %A
+jmp
+nop
 SIM:
-leaw $-1,%A
+leaw $65535,%A
 movw %A,%D
 leaw $SP,%A
 movw (%A),%A
 decw %A
 decw %A
 movw %D,(%A)
+END:
 leaw $SP,%A
 movw (%A),%D
 decw %D
 movw %D,(%A)
+; 8 - Goto Condicional
+leaw $SP,%A
+movw (%A),%A
+decw %A
+movw (%A),%D
+leaw $65535,%A
+subw %A,%D,%D
+leaw $SP,%A
+movw (%A),%S
+decw %S
+movw %S,(%A)
+leaw $END,%A
+je %D
+nop
 ; 9 - PUSH local 0
 leaw $LCL,%A
 movw (%A),%A
@@ -194,6 +214,12 @@ leaw $SP,%A
 movw (%A),%D
 decw %D
 movw %D,(%A)
+; 17 - Goto Incondicional
+leaw $LOOP,%A
+jmp
+nop
+; Label (marcador)
+END:
 ; 18 - PUSH local 0
 leaw $LCL,%A
 movw (%A),%A
@@ -238,4 +264,10 @@ leaw $SP,%A
 movw (%A),%D
 decw %D
 movw %D,(%A)
+; Label (marcador)
+WHILE:
+; 25 - Goto Incondicional
+leaw $WHILE,%A
+jmp
+nop
 ; End
